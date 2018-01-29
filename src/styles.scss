@@ -1,0 +1,73 @@
+@import './styles/variables.scss';
+@import './styles/base.scss';
+@import './styles/mixins.scss';
+@import './styles/modules/accordion.scss';
+@import './styles/modules/alert.scss';
+@import './styles/modules/button.scss';
+@import './styles/layout.scss';
+
+h2 {font-size: 0.9em; }
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.left { float: left; }
+.right { float: right; }
+
+input.ng-invalid.ng-touched {
+    border: 1px solid $formInputAlertTextColor; 
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid $tableTHBorderColor;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: $tableTHBorderColor;
+}
+
+button {
+    background-color: $buttonBlack;
+    border: none;
+    color: buttonTextColorWhite;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0;
+    cursor: pointer;
+}
+/*button {
+    background: $buttonBg;
+    border: 0;
+    color: $buttonTextColor;
+    padding: 7px 40px;
+    cursor: pointer;
+    @include border-radius(10px);
+    @include linear-gradient($buttonLinearGradientColor1, $buttonLinearGradientColor2);
+}*/
+
+button.add { 
+    background: $buttonAddSkill;
+    padding: 7px 20px;
+}
+
+button.delete {
+    background: $buttonDeleteSkill;
+    padding: 7px 20px;
+}
+
+button.clear { 
+    margin-right: 5px;
+    background: $buttonClearFields;
+}

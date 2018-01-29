@@ -1,0 +1,69 @@
+<!-- Form : Name field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeName">
+  <label for="name">First Name</label>
+  <input type="text" value="" id="name" formControlName="name" [(ngModel)]="existingProfileName" />
+  <div class="alert" *ngIf="!detailsForm.controls['name'].valid && detailsForm.controls['name'].touched">{{ errorMessage }}</div>
+</div>
+
+<!-- Form : Surname field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeSurname">
+  <label for="surname">Surname</label>
+  <input type="text" value="" id="surname" formControlName="surname" [(ngModel)]="existingProfileSurname"/>
+  <div class="alert" *ngIf="!detailsForm.controls['surname'].valid && detailsForm.controls['surname'].touched">{{ errorMessage }}</div>
+</div>
+
+<!-- Form : Email field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeEmail">
+  <label for="email">Email Address</label>
+  <input type="text" value="" id="email" formControlName="email" [(ngModel)]="existingProfileEmail" />
+  <div class="alert" *ngIf="!detailsForm.controls['email'].valid && detailsForm.controls['email'].touched">{{ errorMessage }}</div>
+</div>
+
+<!-- Form : Telephone field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeTelephone">
+  <label for="telephone">Telephone</label>
+  <input type="text" value="" id="telephone" formControlName="telephone" [(ngModel)]="existingProfileTelephone" />
+  <div class="alert" *ngIf="!detailsForm.controls['telephone'].valid && detailsForm.controls['telephone'].touched">{{ errorMessage }}</div>
+</div>
+
+<!-- Form : Gender field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeGender">
+  <label for="gender">Gender</label>
+  <select name="gender" id="gender" formControlName="gender">
+    <option value="Select Gender" [selected]="existingProfileGender !== 'male' || existingProfileGender !== 'female'">Select Gender v</option>
+    <option value="male" [selected]="existingProfileGender === 'male'">Male</option>
+    <option value="female" [selected]="existingProfileGender === 'female'">Female</option>
+  </select>
+  <div class="alert" *ngIf="!detailsForm.controls['gender'].valid && detailsForm.controls['gender'].touched">{{ errorMessage }}</div>
+</div>
+
+<!-- Form : Date of birth field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeDOB">
+  <label for="day">Date of birth</label>
+  <input type="text" value="" name="day" id="dateOfBirth" class="small" formControlName="day" maxlength="2" [(ngModel)]="existingProfileDay"/>
+  <input type="text" value="" name="month" class="small" maxlength="2" formControlName="month" [(ngModel)]="existingProfileMonth" />
+  <input type="text" value="" name="year" class="small" maxlength="4" formControlName="year" [(ngModel)]="existingProfileYear" />
+  <div class="alert" *ngIf="(!detailsForm.controls['day'].valid && detailsForm.controls['day'].touched)">{{ errorMessageDay }}</div>
+  <div class="alert" *ngIf="(!detailsForm.controls['month'].valid && detailsForm.controls['month'].touched)">{{ errorMessageMonth }}</div>
+  <div class="alert" *ngIf="(!detailsForm.controls['year'].valid && detailsForm.controls['year'].touched)">{{ errorMessageYear }}</div>
+</div>
+
+<!-- Form : Skills field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeSkills">
+  <p>{{(contactDetails | async)?.skills?.title}}</p>
+  <div formArrayName="skills" class="skills">
+    <div *ngFor="let skillsControl of detailsForm.get('skills').controls; let i = index" [formGroupName]="i">
+      <label for="label_{{i}}">Skill {{i+1}}</label>
+      <input type="text" formControlName="title" id="title_{{i}}" />
+      <span class="alert" *ngIf="!detailsForm.controls.skills.controls[i].controls.title.valid && detailsForm.controls.skills.controls[i].controls.title.touched">{{ errorMessage }}</span>
+      <button type="button" (click)="deleteSkill(i)" class="delete"> X </button>
+    </div>
+  </div>
+</div>
+
+<!-- Form : Comments field -->
+<div [formGroup]="detailsForm" *ngIf="formElementTypeComments">
+  <label for="comments">Comments</label>
+  <textarea name="comments" id="comments" cols="50" rows="8" formControlName="comments" maxlength="250" [(ngModel)]="existingProfilecomments"></textarea>
+  <div class="alert" *ngIf="(!detailsForm.controls['comments'].valid && detailsForm.controls['comments'].touched)">{{ errorMessage }}</div>
+</div>

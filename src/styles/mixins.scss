@@ -1,0 +1,23 @@
+// -- MIXINS
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+@mixin linear-gradient($color1, $color2) {
+    background: -webkit-linear-gradient($color1, $color2);
+    background: -o-linear-gradient($color1, $color2);
+    background: -moz-linear-gradient($color1, $color2);
+    background: linear-gradient($color1, $color2);
+}
+
+@mixin text-shadow($hValue, $vValue, $color) {
+    text-shadow: $hValue $vValue $color;
+}
+
+@mixin box-shadow($hOffset, $vOffset, $blur, $spread, $color, $option) {
+    box-shadow: $hOffset $vOffset $blur $spread $color $option;
+}
+// -- END ----------------------------------- 

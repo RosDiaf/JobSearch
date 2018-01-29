@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+.skills {
+    
+    button.delete {
+        background: $buttonDeleteSkill;
+        padding: 7px 20px;
+    }
+
+    label { display: inline-block; }
+    input { display: inline-block; margin: 3px 0 3px 0; }
+
+}

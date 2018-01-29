@@ -1,0 +1,167 @@
+<div class="container">
+  <h1>Apply</h1>
+  <div *ngIf="isSuccessfullyPosted" class="service-response">
+    <p class="successfullMsg">{{sectionDetailsPosted}}: Your details have been sent!</p>
+  </div>
+  <div *ngIf="hasServiceFailed" class="service-response-failure"> 
+    <p>Service Failed, your details have not been sent!</p>
+  </div>
+
+  <div>
+    <p>{{(personalDetails | async)?.forename}}</p>
+    <p>{{(personalDetails | async)?.surname}}</p>
+    <p>{{(personalDetails | async)?.gender}}</p>
+    <p>{{(contactDetails | async)?.postalAddress?.line1}}</p>
+    <p>{{(contactDetails | async)?.telephoneNumbers?.home}}</p>
+    <p>{{(personalDetails | async)?.dateOfBirth}}</p>
+    <p>{{(contactDetails | async)?.comments?.content}}</p>
+    <p>{{(contactDetails | async)?.skills?.title}}</p>
+  </div>
+
+  <form [formGroup]="detailsForm" *ngIf="!submitted else thankYouPage">
+    <!-- ACCORDION : start  -->
+    <div class="accordionWrapper">
+      
+      <!-- ITEM 1 -->
+      <div class="accordionItem open">
+        <h2 class="accordionItemHeading" id="step1">Step 1: Your details</h2>
+        <div class="accordionItemContent">
+          <div class="row clearfix">
+            <div class="formGroup left">
+              <app-form [detailsForm]="detailsForm" 
+                        [errorMessage]="errorMessage[0]" 
+                        [formElementTypeName]="formElementTypeName"
+                        [existingProfileName]="firstName"></app-form>
+            </div>
+            <div class="formGroup left">
+              <app-form [detailsForm]="detailsForm" 
+                        [errorMessage]="errorMessage[0]" 
+                        [formElementTypeSurname]="formElementTypeSurname"
+                        [existingProfileSurname]="lastName"></app-form>
+            </div>
+          </div>
+          <div class="formGroup">
+            <app-form [detailsForm]="detailsForm" 
+                      [errorMessage]="errorMessage[1]" 
+                      [formElementTypeEmail]="formElementTypeEmail"
+                      [existingProfileEmail]="emailAddress"></app-form>
+          </div>
+          <hr />
+          <div class="clearfix">
+            <button id="part1" (click)="goToNextStep(detailsForm.controls, 'part1')"> Next > </button>
+          </div>
+        </div>
+      </div>
+      <!-- // END -->
+
+
+      <!-- ITEM 2 -->
+      <div class="accordionItem close">
+        <h2 class="accordionItemHeading" id="step2">Step 2: Your address</h2>
+        <div class="accordionItemContent">
+          <div class="row clearfix">
+            <div class="formGroup">
+              <app-address (fullAddressFromAutoComplete)="fullAddressFromAutoComplete($event)" [existingPostalAddress]="postalAddress"></app-address>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // END -->
+
+
+      <!-- ITEM 3 -->
+      <div class="accordionItem close">
+        <h2 class="accordionItemHeading" id="step3">Step 3: Your telephone, gender and date of birth</h2>
+        <div class="accordionItemContent">
+          <div class="row clearfix">
+            <div class="formGroup left">
+              <app-form [detailsForm]="detailsForm" 
+                        [errorMessage]="errorMessage[2]" 
+                        [formElementTypeTelephone]="formElementTypeTelephone"
+                        [existingProfileTelephone]="telephone"></app-form>
+            </div>
+            <div class="formGroup left">
+              <app-form [detailsForm]="detailsForm" 
+                        [errorMessage]="errorMessage[3]" 
+                        [formElementTypeGender]="formElementTypeGender"
+                        [existingProfileGender]="gender"></app-form>
+            </div>
+          </div>
+          <div class="formGroup">
+            <app-form [detailsForm]="detailsForm" 
+              [errorMessageDay]="errorMessage[4]"
+              [errorMessageMonth]="errorMessage[5]"
+              [errorMessageYear]="errorMessage[6]" 
+              [formElementTypeDOB]="formElementTypeDOB"
+              [existingProfileDay]="day"
+              [existingProfileMonth]="month"
+              [existingProfileYear]="year"></app-form>
+          </div>
+          <hr />
+          <div class="clearfix"><button id="part3" (click)="goToNextStep(detailsForm.controls, 'part3')"> Next > </button></div>
+        </div>
+      </div>
+      <!-- // END -->
+
+
+      <!-- ITEM 4 -->
+      <div class="accordionItem close">
+        <h2 class="accordionItemHeading" id="step4">Step 4: Your Skills</h2>
+        <div class="accordionItemContent">
+          <div class="row clearfix">
+            <div formArrayName="skills" class="formGroup">
+                <app-form 
+                  [detailsForm]="detailsForm" 
+                  [errorMessage]="errorMessage[8]" 
+                  [formElementTypeSkills]="formElementTypeSkills"
+                  (deleteSingleSkill)="deleteSkill($event)"
+                  [existingProfileNewSkills]="newSkills"></app-form>
+                <hr />
+                <button type="button" (click)="addNewSkill()" class="add">Add skill</button>
+                <div class="clearfix"><button id="part4" (click)="goToNextStep(detailsForm.controls, 'part4')"> Next > </button></div> <!-- [disabled]="!detailsForm.valid" -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // END -->
+
+      <!-- ITEM 5 -->
+      <div class="accordionItem close">
+        <h2 class="accordionItemHeading" id="step5">Step 5: Final comments</h2>
+        <div class="accordionItemContent">
+            <div class="formGroup">
+              <app-form 
+                [detailsForm]="detailsForm" 
+                [errorMessage]="errorMessage[7]" 
+                [formElementTypeComments]="formElementTypeComments"
+                [existingProfilecomments]="comments"></app-form>
+            </div>
+            <hr />
+            <div class="clearfix">
+              <button id="part5" (click)="goToNextStep(detailsForm.controls, 'part5')"> Next > </button>
+              <button type="button" id="clearPart1" class="clear" (click)="clearFields()"> Clear </button>
+            </div>
+        </div>
+      </div>
+      <!-- // END -->
+    </div>
+    <div class="serviceResponse clearfix">
+      <div class="map" *ngIf="isSuccessfullyPosted">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker [latitude]="lat" [longitude]="lng" [label]="label">
+            <!-- By making a <agm-info-window> a child element of an <agm-marker>, 
+                 AGM will automatically make sure that clicking the marker will open the info window. -->
+            <agm-info-window>{{postalAddress}}</agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+    <!-- ACCORDION : end  -->
+  </form>
+</div>
+
+<!-- THANK YOU VIEW : start --> 
+<ng-template #thankYouPage>
+  <app-confirmation [detailsForm]="detailsForm"></app-confirmation>
+</ng-template>
+<!-- // END -->

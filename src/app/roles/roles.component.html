@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Positions</h1>
+  <div class="w3-card-4" *ngFor="let position of positions; let i = index">
+    <header class="w3-container w3-blue">
+      <h1>{{position.title}}</h1>
+    </header>
+  
+    <div class="w3-container">
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>{{position.type}}</td>
+        </tr>
+        <tr>
+          <td>Posted</td>
+          <td>{{position.posted}}</td>
+        </tr>
+        <tr>
+          <td>Salary</td>
+          <td>{{position.salary}}</td>
+        </tr>
+        <tr>
+          <td>Company</td>
+          <td>{{position.company}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="btn"><button type="button" class="button4">View</button></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  
+    <footer class="w3-container w3-gray">
+      <h5>Location: {{position.location}}</h5>
+    </footer>
+  </div>
+</div> 

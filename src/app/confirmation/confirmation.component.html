@@ -1,0 +1,37 @@
+<div class="thank-you-container">
+  <div class="header">Thank you!</div>
+  <div class="message">
+    Your submission is received and we will contact you soon.
+  </div>
+  <hr />
+  <table border="1"> 
+    <thead>
+      <th id="first-header">Name</th>
+      <th id="second-header">Surname</th>
+      <th id="second-header">Gender</th>
+      <th id="third-header">Email</th>
+      <th id="third-header">Address</th>
+      <th id="fourth-header">Telephone</th>
+      <th id="fifth-header">Date of birth</th>
+      <th id="sixth-header">Comments</th>
+      <th id="seventh-header">Skills</th>
+    </thead>
+    <tbody> 
+      <tr>
+        <td [innerHTML]="this.detailsForm?.controls['name'].value"></td>
+        <td [innerHTML]="this.detailsForm?.controls['surname'].value"></td>
+        <td [innerHTML]="this.detailsForm?.controls['gender'].value"></td>
+        <td [innerHTML]="this.detailsForm?.controls['email'].value"></td>
+        <td [innerHTML]="this.detailsForm?.controls['address'].value"></td>
+        <td [innerHTML]="this.detailsForm?.controls['telephone'].value"></td>
+        <td>{{this.detailsForm?.controls['day'].value}}/{{this.detailsForm?.controls['month'].value}}/{{this.detailsForm?.controls['year'].value}}</td>
+        <td [innerHTML]="this.detailsForm?.controls['comments'].value"></td>
+        <td>
+          <span *ngFor="let skill of this.detailsForm?.controls.skills.controls; let i = index">
+              {{skill.controls.title.value}}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

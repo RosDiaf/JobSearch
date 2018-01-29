@@ -1,0 +1,7 @@
+if (this.existingProfileNewSkills) {
+    // this.existingSkills = this.profileService.getProfileData(0);
+    const controls = <FormArray>this.detailsForm.controls['skills'].value;
+    for (let i = 0; i < controls.length; i++) {
+      console.log(controls[i].title);
+    }
+  }

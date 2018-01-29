@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Profile Details</h1>
+  <table>
+    <tr>
+      <th id="profile-first-header">Name</th>
+      <th id="profile-second-header">Surname</th>
+      <th id="profile-second-header">Gender</th>
+      <th id="profile-third-header">Email</th>
+      <th id="profile-third-header">Address</th>
+      <th id="profile-fourth-header">Telephone</th>
+      <th id="profile-fifth-header">Date of birth</th>
+      <th id="profile-sixth-header">Comments</th>
+      <th id="profile-seventh-header">Skills</th>
+      <th id="btn-edit">Edit</th>
+      <th id="btn-remove">Remove</th>
+    </tr>
+    <tr *ngFor="let profile of profileService.profile; let i = index">
+      <td>{{profile.name}}</td>
+      <td>{{profile.surname}}</td>
+      <td>{{profile.gender}}</td>
+      <td>{{profile.email}}</td>
+      <td>{{profile.address}}</td>
+      <td>{{profile.telephone}}</td>
+      <td>{{profile.day}}/{{profile.month}}/{{profile.year}}</td>
+      <td>{{profile.comments}}</td>
+      <td>
+        <span *ngFor="let skill of profile.skills">
+          {{skill.title}}
+        </span>
+      </td>
+      <td>
+        <button type="button" class="button2" (click)="editProfile(i)">Edit</button>
+      </td>
+      <td>
+        <button type="button" class="button3" (click)="deleteProfile(i)">X</button>
+      </td>
+    </tr>
+  </table>
+</div>
