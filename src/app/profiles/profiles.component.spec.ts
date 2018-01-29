@@ -25,7 +25,7 @@ describe('ProfilesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ProfilesComponent ],
       providers: [
-        ProfileService, 
+        ProfileService,
         NgRedux,
         CustomerProfileActions,
         {provide: Router, useClass: RouterStub}]

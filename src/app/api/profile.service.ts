@@ -27,7 +27,7 @@ export class ProfileService {
   }
 
   updateProfileData(controls, index) {
-    this.profile.splice(index, 1, 
+    this.profile.splice(index, 1,
       new Profile(
         controls.name.value,
         controls.surname.value,

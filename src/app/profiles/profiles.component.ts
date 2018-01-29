@@ -17,9 +17,9 @@ export class ProfilesComponent implements OnInit {
 
   @select(['customerProfile', 'customerData', 'personalDetails']) personalDetails: Observable<any>;
   @select(['customerProfile', 'customerData', 'contactDetails']) contactDetails: Observable<any>;
-  
-  constructor(public profileService: ProfileService, 
-              public router: Router, 
+
+  constructor(public profileService: ProfileService,
+              public router: Router,
               private customerProfileActions: CustomerProfileActions) { }
 
   ngOnInit() {

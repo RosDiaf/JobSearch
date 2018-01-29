@@ -315,7 +315,7 @@ describe('DetailsComponent', () => {
         postcode: ''
       };
       const actions = TestBed.get(CustomerProfileActions);
-      let spy = spyOn(actions, 'updateCustomerProfile');
+      const spy = spyOn(actions, 'updateCustomerProfile');
       component.reduxStoreUpdateProfilePostalAddress();
       expect(spy).toHaveBeenCalledWith(postalAddress);
     });
@@ -324,7 +324,7 @@ describe('DetailsComponent', () => {
       component.detailsForm.controls['telephone'].setValue('12345678900');
       const homePhoneNumber = '12345678900';
       const actions = TestBed.get(CustomerProfileActions);
-      let spy = spyOn(actions, 'updateContactHomePhoneSuccess');
+      const spy = spyOn(actions, 'updateContactHomePhoneSuccess');
       component.reduxStoreUpdateProfileTelephone();
       expect(spy).toHaveBeenCalledWith(homePhoneNumber);
     });
@@ -336,7 +336,7 @@ describe('DetailsComponent', () => {
       component.detailsForm.controls['name'].setValue('Rosario');
       component.detailsForm.controls['surname'].setValue('Diaferia');
       component.detailsForm.controls['gender'].setValue('male');
-      
+
       const personalDetails = {
         dateOfBirth: '14/02/1973',
         forename: 'Rosario',
@@ -344,7 +344,7 @@ describe('DetailsComponent', () => {
         surname: 'Diaferia',
       };
       const actions = TestBed.get(CustomerProfileActions);
-      let spy = spyOn(actions, 'updatePersonalDetailsSuccess');
+      const spy = spyOn(actions, 'updatePersonalDetailsSuccess');
       component.reduxStoreUpdateProfileDetails();
       expect(spy).toHaveBeenCalledWith(personalDetails);
     });
@@ -353,7 +353,7 @@ describe('DetailsComponent', () => {
       component.detailsForm.controls['comments'].setValue('Test comments..');
       const homePhoneNumber = 'Test comments..';
       const actions = TestBed.get(CustomerProfileActions);
-      let spy = spyOn(actions, 'updateFinalComments');
+      const spy = spyOn(actions, 'updateFinalComments');
       component.reduxStoreUpdateProfileComments();
       expect(spy).toHaveBeenCalledWith(homePhoneNumber);
     });
@@ -363,7 +363,7 @@ describe('DetailsComponent', () => {
       component.detailsForm.controls['skills'].setValue(skillArray);
       const skills = 'Angular,JavaScript,';
       const actions = TestBed.get(CustomerProfileActions);
-      let spy = spyOn(actions, 'updateCandidateSkills');
+      const spy = spyOn(actions, 'updateCandidateSkills');
       component.reduxStoreUpdateProfileSkills();
       expect(spy).toHaveBeenCalledWith(skills);
     });
