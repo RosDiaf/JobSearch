@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Positions</h1>
+  <div class="w3-card-4">
+    <header class="w3-container w3-blue">
+      <h1>{{positions[roleId].title}}</h1>
+    </header>
+  
+    <div class="w3-container">
+      <table>
+        <tr>
+          <td>Type</td>
+          <td>{{positions[roleId].type}}</td>
+        </tr>
+        <tr>
+          <td>Posted</td>
+          <td>{{positions[roleId].posted}}</td>
+        </tr>
+        <tr>
+          <td>Salary</td>
+          <td>{{positions[roleId].salary}}</td>
+        </tr>
+        <tr>
+          <td>Company</td>
+          <td>{{positions[roleId].company}}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td [innerHtml]="positions[roleId].description"></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="btn"><button type="button" class="button4" (click)="applyRole(this.roleId)">Apply</button></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  
+    <footer class="w3-container w3-gray">
+      <h5>Location: {{positions[roleId].location}}</h5>
+    </footer>
+  </div>
+</div> 

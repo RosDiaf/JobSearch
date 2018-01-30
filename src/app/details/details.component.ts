@@ -39,6 +39,7 @@ export class DetailsComponent implements OnInit {
   formElementTypeSkills = true;
   formElementTypeComments = true;
 
+  roleId: number;
   profileId: number;
   firstName: string;
   lastName: string;
@@ -85,6 +86,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.profileId = Number.parseInt(params['id']);
+      this.roleId = Number.parseInt(params['id']);
       if (this.profileService.profile.length > 0) {
         this.firstName = this.profileService.profile[this.profileId].name;
         this.lastName = this.profileService.profile[this.profileId].surname;

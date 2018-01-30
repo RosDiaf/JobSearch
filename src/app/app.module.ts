@@ -25,11 +25,13 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DetailsComponent } from './details/details.component';
 import { RolesComponent } from './roles/roles.component';
+import { RoleDetailsComponent } from './role-details/role-details.component';
 
 // -- Redux
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { rootReducer } from './store/rootReducer';
 import { CustomerProfileActions } from './store/profileReducer/profileActions';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { CustomerProfileActions } from './store/profileReducer/profileActions';
     ProfilesComponent,
     NavigationComponent,
     DetailsComponent,
-    RolesComponent
+    RolesComponent,
+    RoleDetailsComponent
   ],
   imports: [
     routing,
