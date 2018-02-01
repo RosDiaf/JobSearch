@@ -1,41 +1,11 @@
 @import '../../styles/variables.scss';
 
-nav {
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: $navBgColor;
-
-        li {
-            float: left;
-            border-right:1px solid $navItemBorderRightColor;
-
-            &:last-child {
-                border-right: none;
-            }
-
-            a {
-                display: block;
-                color: $navItemTextColor;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-
-                &:hover:not(.active) {
-                    background-color: $navItemNotActive;
-                }
-            }
-
-        }
-    
-        .active {
-            background-color: $navItemActive;
-        }
-
-        .nav-last-item {
-            float: right;
-        }
+.w3-top {
+    .w3-circle {
+        height:23px;
+        width:23px;
+    }
+    .w3-dropdown-content {
+        width: 300px;
     }
 }

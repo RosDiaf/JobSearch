@@ -24,29 +24,101 @@ describe('NavigationComponent', () => {
   });
 
   describe('Nativation menu', () => {
-    it('should display \'Home\' on active load when app load', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('.active');
+    
+    it('should display \'Manu bars\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-bars');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'Home Icon\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-home');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'User Icon\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-user');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'Globe Icon\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-globe');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'Envelope Icon\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-envelope');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'Bell Icon\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-bell');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'Avatar\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.w3-circle');
+      expect(element).not.toBeNull();
+    });
+  });
+
+  describe('Dropdown contents', () => {
+    it('should display dropdown content on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.w3-dropdown-content');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display dropdown content first item on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('#content_0');
+      expect(element).not.toBeNull();
+      expect(element.textContent).toContain('One new friend request');
+    });
+  })
+
+  describe('Navbar on small screen', () => {
+    it('should display navbar on small screen when responsiveNav is true', () => {
+      component.responsiveNav = true;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('.w3-show');
+      expect(element).not.toBeNull();
+    });
+
+    it('should not display navbar on small screen when responsiveNav is false', () => {
+      component.responsiveNav = false;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('.w3-show');
+      expect(element).toBeNull();
+    });
+
+    it('should display \'Home\' link navbar on small screen when responsiveNav is true', () => {
+      component.responsiveNav = true;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('#small-screen-item-1');
+      expect(element).not.toBeNull();
       expect(element.textContent).toContain('Home');
     });
 
-    it('should display \'Profiles\' on last item when app load', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('#item-2');
-      expect(element.textContent).toContain('Profiles');
+    it('should display \'Profile\' link navbar on small screen when responsiveNav is true', () => {
+      component.responsiveNav = true;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('#small-screen-item-2');
+      expect(element).not.toBeNull();
+      expect(element.textContent).toContain('Profile');
     });
 
-    it('should display \'Apply\' on last item when app load', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('#item-3');
-      expect(element.textContent).toContain('Apply');
+    it('should display \'Link 3\' link navbar on small screen when responsiveNav is true', () => {
+      component.responsiveNav = true;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('#small-screen-item-3');
+      expect(element).not.toBeNull();
+      expect(element.textContent).toContain('Link 3');
     });
 
-    it('should display \'Contact\' on last item when app load', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('#item-4');
-      expect(element.textContent).toContain('Contact');
+    it('should display \'My Profile\' link navbar on small screen when responsiveNav is true', () => {
+      component.responsiveNav = true;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('#small-screen-item-4');
+      expect(element).not.toBeNull();
+      expect(element.textContent).toContain('My Profile');
     });
-
-    it('should display \'About\' on last item when app load', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('.nav-last-item');
-      expect(element.textContent).toContain('About');
-    });
-  });
+  })
 });

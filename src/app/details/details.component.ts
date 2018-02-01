@@ -10,6 +10,7 @@ import { SanitizerService } from '../common/sanitizer';
 import { Skills } from '../common/skills.model';
 import { ProfileService } from '../api/profile.service';
 import { ActivatedRoute  } from '@angular/router';
+import { positions } from '../common/positions';
 
 // -- Redux
 import { NgRedux, select } from '@angular-redux/store';
@@ -39,6 +40,7 @@ export class DetailsComponent implements OnInit {
   formElementTypeSkills = true;
   formElementTypeComments = true;
 
+  positions = positions;
   roleId: number;
   profileId: number;
   firstName: string;

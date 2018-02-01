@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { positions } from '../common/positions';
 
 @Component({
   selector: 'app-confirmation',

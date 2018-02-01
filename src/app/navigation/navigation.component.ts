@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  responsiveNav: boolean;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  openNav() {
+    this.responsiveNav = !this.responsiveNav;
+    console.log(this.responsiveNav);
+  }
 }

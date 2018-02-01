@@ -1,4 +1,4 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture, inject } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DetailsComponent } from './details.component';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -13,6 +13,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Profile } from '../common/profile.model';
 import { ProfileService } from '../api/profile.service';
 import { SanitizerService } from '../common/sanitizer';
 
@@ -383,5 +384,34 @@ describe('DetailsComponent', () => {
       // expect(el.innerHTML).toContain('Your details have been sent!');
       // expect(fixture.componentInstance.isSuccessfullyPosted).toBeDefined();
     });
+  });
+
+  xdescribe('Profile object', () => {
+    it('should return profile object', inject([ProfileService], (service: ProfileService) => {
+      
+      
+      component.profileId = 0;
+      service.profile.push(
+        new Profile(
+        "Rosario",
+        "Diaferia",
+        "rd@test.com",
+        "1 High road N1",
+        "12345678900",
+        'male',
+        14,
+        2,
+        1973,
+        '',
+        'test comment'));
+      
+      fixture.detectChanges();
+      //component.ngOnInit();
+      //expect(service.profile.length).toBeGreaterThan(0);
+      const name = service.profile[0].name;
+      console.log(name);
+      expect(component.firstName).toEqual(name);
+
+    }));
   });
 });

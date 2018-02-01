@@ -1,11 +1,13 @@
 @import './styles/w3c.css';
 @import './styles/variables.scss';
-@import './styles/base.scss';
+// @import './styles/base.scss';
 @import './styles/mixins.scss';
 @import './styles/modules/accordion.scss';
 @import './styles/modules/alert.scss';
 @import './styles/modules/button.scss';
+@import './styles/modules/box.scss';
 @import './styles/layout.scss';
+@import './styles/theme/theme-blue-grey.scss';
 
 h2 {font-size: 0.9em; }
 .clearfix::after {
@@ -48,15 +50,6 @@ button {
     margin: 0;
     cursor: pointer;
 }
-/*button {
-    background: $buttonBg;
-    border: 0;
-    color: $buttonTextColor;
-    padding: 7px 40px;
-    cursor: pointer;
-    @include border-radius(10px);
-    @include linear-gradient($buttonLinearGradientColor1, $buttonLinearGradientColor2);
-}*/
 
 button.add { 
     background: $buttonAddSkill;

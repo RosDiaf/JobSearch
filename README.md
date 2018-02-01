@@ -58,5 +58,11 @@ https://github.com/angular-redux/store/blob/master/articles/intro-tutorial.md
 
 #### @angular-redux/store
 https://angular-redux.github.io/store/
+#### Store
 https://github.com/ngrx/store
+#### Redux tutorial
 http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/
+
+
+### Test coverage (Istanbul)
+$ ng test --code-coverage
