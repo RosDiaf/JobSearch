@@ -24,7 +24,7 @@ describe('NavigationComponent', () => {
   });
 
   describe('Nativation menu', () => {
-    
+
     it('should display \'Manu bars\' on active load when app load', () => {
       const element = fixture.debugElement.nativeElement.querySelector('.fa-bars');
       expect(element).not.toBeNull();
@@ -72,9 +72,21 @@ describe('NavigationComponent', () => {
       expect(element).not.toBeNull();
       expect(element.textContent).toContain('One new friend request');
     });
-  })
+  });
 
   describe('Navbar on small screen', () => {
+    it('should toggle responsive nav status to true when false', () => {
+      component.responsiveNav = false;
+      component.openNav();
+      expect(component.responsiveNav).toBeTruthy();
+    });
+
+    it('should toggle responsive nav status to false when true', () => {
+      component.responsiveNav = true;
+      component.openNav();
+      expect(component.responsiveNav).toBeFalsy();
+    });
+
     it('should display navbar on small screen when responsiveNav is true', () => {
       component.responsiveNav = true;
       fixture.detectChanges();
@@ -120,5 +132,5 @@ describe('NavigationComponent', () => {
       expect(element).not.toBeNull();
       expect(element.textContent).toContain('My Profile');
     });
-  })
+  });
 });

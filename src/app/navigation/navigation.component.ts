@@ -16,6 +16,5 @@ export class NavigationComponent implements OnInit {
 
   openNav() {
     this.responsiveNav = !this.responsiveNav;
-    console.log(this.responsiveNav);
   }
 }

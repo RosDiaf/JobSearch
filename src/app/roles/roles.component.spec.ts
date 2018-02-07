@@ -15,7 +15,7 @@ describe('RolesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RolesComponent ],
-      providers:[{provide: Router, useClass: RouterStub}]
+      providers: [{ provide: Router, useClass: RouterStub }]
     })
     .compileComponents();
   }));

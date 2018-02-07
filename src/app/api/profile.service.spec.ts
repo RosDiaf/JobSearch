@@ -17,11 +17,11 @@ describe('ProfileService', () => {
     const index = 0;
     service.profile.push(
       new Profile(
-      "Rosario",
-      "Diaferia",
-      "rd@test.com",
-      "1 High road N1",
-      "12345678900",
+      'Rosario',
+      'Diaferia',
+      'rd@test.com',
+      '1 High road N1',
+      '12345678900',
       'male',
       14,
       2,

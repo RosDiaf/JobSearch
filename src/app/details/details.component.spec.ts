@@ -132,24 +132,14 @@ describe('DetailsComponent', () => {
             controls:
             [
               {
-                controls:
-                {
-                  name: {
-                    errors: { pattern: false },
-                    value: 'JavaScript',
-                    valid: true
-                  }
-                }
+                value: {
+                  title: 'JavaScript'
+                },
               },
               {
-                controls:
-                {
-                  name: {
-                    errors: { pattern: false },
-                    value: 'Angular',
-                    valid: true
-                  }
-                }
+                value: {
+                  title: 'Angular'
+                },
               }
             ]
           },
@@ -202,7 +192,30 @@ describe('DetailsComponent', () => {
       expect(spyPostUserDetails).toHaveBeenCalledWith(userDetailsObjStringfy, 'Section 3');
     });
 
-    it('should submit comments', () => {
+    it('should close fourth panel and open fifth one', () => {
+
+      const spyOnAccordionPanelSate = spyOn(component, 'accordionPanelState');
+      const spySanitizeInputForm = spyOn(component, 'sanitizeInputForm')
+      const spyPostUserDetails = spyOn(component, 'postUserDetails');
+      const userDetailsObjStringfy = '[{"skill":"JavaScript"},{"skill":"Angular"}]';
+
+      component.goToNextStep(form.controls, 'part4');
+
+      expect(spyOnAccordionPanelSate).toHaveBeenCalledWith(3, 4);
+      expect(spySanitizeInputForm).toHaveBeenCalledWith(component.detailsForm, 'part4');
+      expect(spyPostUserDetails).toHaveBeenCalledWith(userDetailsObjStringfy, 'Section 4');
+    });
+
+    it('should return empty user details object if skills not added', () => {
+
+      form.controls.skills.controls[0].value.title = '';
+      form.controls.skills.controls[1].value.title = '';
+      component.goToNextStep(form.controls, 'part4');
+      expect(component.userDetailsObjectStringfy).toEqual('[]');
+
+    });
+
+    it('should submit form if comments entered', () => {
 
       const spySanitizeInputForm = spyOn(component, 'sanitizeInputForm');
       const spyPostUserDetails = spyOn(component, 'postUserDetails');
@@ -215,6 +228,153 @@ describe('DetailsComponent', () => {
       expect(spyPostUserDetails).toHaveBeenCalledWith(userDetailsObjStringfy, 'Section 5');
       expect(spyShowConfirmationPage).toHaveBeenCalled();
     });
+
+    it('should not submit form if comments are not entered', () => {
+      
+      form.controls.comments = '';
+      const spyShowConfirmationPage = spyOn(component, 'showConfirmationPage');
+      component.goToNextStep(form.controls, 'part5');
+      expect(spyShowConfirmationPage).not.toHaveBeenCalledWith(form.controls);
+      
+    });
+
+    describe('Submit form', () => {
+      
+      beforeEach(() => {
+        component.profileService.profile.push(
+          new Profile(
+          'Rosario',
+          'Diaferia',
+          'rd@test.com',
+          '1 High road N1',
+          '12345678900',
+          'male',
+          14,
+          2,
+          1973,
+          '[{"skill":"JavaScript"},{"skill":"Angular"}]',
+          'test comment'));
+      });
+
+      it('should set submit to true and update redux store', () => {
+        const spySetProfileData = spyOn(component, 'setProfileData');
+        const spyReduxStoreUpdateProfilePostalAddress = spyOn(component, 'reduxStoreUpdateProfilePostalAddress');
+        const spyReduxStoreUpdateProfileTelephone = spyOn(component, 'reduxStoreUpdateProfileTelephone');
+        const spyReduxStoreUpdateProfileDetails = spyOn(component, 'reduxStoreUpdateProfileDetails');
+        const spyReduxStoreUpdateProfileSkills = spyOn(component, 'reduxStoreUpdateProfileSkills');
+        const spyReduxStoreUpdateProfileComments = spyOn(component, 'reduxStoreUpdateProfileComments');
+
+        component.showConfirmationPage(form.controls);
+
+        expect(spySetProfileData).toHaveBeenCalledWith(form.controls);
+        expect(spyReduxStoreUpdateProfilePostalAddress).toHaveBeenCalled();
+        expect(spyReduxStoreUpdateProfileTelephone).toHaveBeenCalled();
+        expect(spyReduxStoreUpdateProfileDetails).toHaveBeenCalled();
+        expect(spyReduxStoreUpdateProfileSkills).toHaveBeenCalled();
+        expect(spyReduxStoreUpdateProfileComments).toHaveBeenCalled();
+
+      });
+
+      it('should add profile data to profile object array', () => {
+        const profileService = TestBed.get(ProfileService);
+        const spy = spyOn(component, 'existingFormValues');
+        component.ngOnInit();
+        expect(profileService.profile.length).toEqual(1);
+        expect(spy).toHaveBeenCalled();
+      });
+
+      it('should set existing form value available for ngModel', () => {
+        const profileService = TestBed.get(ProfileService);
+        component.profileId = 0;
+        component.existingFormValues();
+        expect(component.firstName).toEqual('Rosario');
+        expect(component.lastName).toEqual('Diaferia');
+        expect(component.emailAddress).toEqual('rd@test.com');
+        expect(component.postalAddress).toEqual('1 High road N1');
+        expect(component.telephone).toEqual(12345678900);
+        expect(component.gender).toEqual('male');
+        expect(component.day).toEqual(14);
+        expect(component.month).toEqual(2);
+        expect(component.year).toEqual(1973);
+        expect(component.comments).toEqual('test comment');
+      });
+      
+      it('should clear the form if clear button is clicked', () => {
+        const spy = spyOn(component, 'accordionPanelState');
+        component.clearFields();
+        expect(spy).toHaveBeenCalledWith(4, 0);
+      });
+    });
+
+    describe('Sanitize input fields', () => {
+      let sanitizeService;
+      beforeEach(() => {
+        sanitizeService = TestBed.get(SanitizerService)
+      });
+
+      it('should sanitize part 1 of the form when submitted', () => {
+        const spySanitizeInput = spyOn(sanitizeService, 'sanitizeInput');
+        component.sanitizeInputForm(form, 'part1');
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['name'].value);
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['surname'].value);
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['email'].value);
+      });
+
+      it('should sanitize part 2 of the form when submitted', () => {
+        const spySanitizeInput = spyOn(sanitizeService, 'sanitizeInput');
+        component.sanitizeInputForm(form, 'part2');
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['address'].value);
+      });
+
+      it('should sanitize part 3 of the form when submitted', () => {
+        const spySanitizeInput = spyOn(sanitizeService, 'sanitizeInput');
+        component.sanitizeInputForm(form, 'part3');
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['telephone'].value);
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['day'].value);
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['month'].value);
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['year'].value);
+      });
+
+      it('should sanitize part 5 of the form when submitted', () => {
+        const spySanitizeInput = spyOn(sanitizeService, 'sanitizeInput');
+        component.sanitizeInputForm(form, 'part5');
+        expect(spySanitizeInput).toHaveBeenCalledWith(form.controls['comments'].value);
+      });
+
+      it('should not sanitize it form part name not provided', () => {
+        const spySanitizeInput = spyOn(sanitizeService, 'sanitizeInput');
+        component.sanitizeInputForm(form, '');
+        expect(spySanitizeInput).not.toHaveBeenCalledWith(form.controls['name'].value);
+      });
+    });
+
+    describe('Service response', () => {
+
+      it('should display error message if service fails', () => {
+        const objDetailsStringfy = {};
+        const postDetailsService = TestBed.get(PostDetailsService);
+        const spy = spyOn(postDetailsService, 'postDetails').and.returnValue(Observable.throw({status: 404}));
+        component.postUserDetails(objDetailsStringfy, 'Section 1');
+        expect(spy).toHaveBeenCalled();
+        expect(component.hasServiceFailed).toBeTruthy();
+      });
+
+      it('should update profile data when if profile id exists', () => {
+        const service = TestBed.get(ProfileService);
+        const spyUpdateProfileData = spyOn(service, 'updateProfileData');
+        component.profileId = 0;
+        component.setProfileData(form.controls);
+        expect(spyUpdateProfileData).toHaveBeenCalledWith(form.controls, 0);
+      })
+
+      it('should set profile data if profile id does not exists', () => {
+        const service = TestBed.get(ProfileService);
+        const spySetProfileData = spyOn(service, 'setProfileData');
+        component.profileId = -1;
+        component.setProfileData(form.controls);
+        expect(spySetProfileData).toHaveBeenCalledWith(form.controls);
+      })
+    });  
   });
 
   describe('Accordion panel css classes', () => {
@@ -370,48 +530,66 @@ describe('DetailsComponent', () => {
     });
   });
 
-  xdescribe('Service response', () => {
-    it('should display successfully message when service post data', () => {
-      // const fixture = TestBed.createComponent(DetailsComponent);
-      // const app = fixture.debugElement.componentInstance;
-      component.isSuccessfullyPosted = true;
-      const de = fixture.debugElement.query(By.css('.successfullMsg'));
-      // fixture.detectChanges();
-      // const el: HTMLElement = de.nativeElement;
-      // let element2 = fixture.debugElement.nativeElement.querySelector(".successfullMsg");
-      // expect(element2.textContent).toContain("come");
-      expect(de).not.toBeNull();
-      // expect(el.innerHTML).toContain('Your details have been sent!');
-      // expect(fixture.componentInstance.isSuccessfullyPosted).toBeDefined();
+  describe('Profile object', () => {
+    it('should assign google address value to postalAddress form field when step2 completed', () => {
+      let selectedData = { 
+        data: {
+          address_components: [
+            {
+              long_name: '107',
+              short_name: '107',
+              types: Array(1)
+            },
+            {
+              long_name: "Maiden Lane", 
+              short_name: "Maiden Ln",
+              types: Array(1)
+            },
+            {
+              long_name: "Manhattan", 
+              short_name: "Manhattan", 
+              types: Array(3)
+            },
+            {
+              long_name: "New York", 
+              short_name: "New York", 
+              types: Array(2)
+            },
+            {
+              long_name: "New York County", 
+              short_name: "New York County", 
+              types: Array(2)
+            },
+            {
+              long_name: "New York", 
+              short_name: "NY", 
+              types: Array(2)
+            },
+            { 
+              long_name: "United States", 
+              short_name: "US", 
+              types: Array(2) 
+            },
+            { 
+              long_name: "10038", 
+              short_name: "10038", 
+              types: Array(1)
+            }
+          ],
+          geometry: {
+            location: {
+              lat: 40.7069492,
+              lng: -74.00666230000002
+            }
+          }
+        }
+      };
+      let spy = spyOn(component, 'goToNextStep');
+      component.lat = 40.7069492;
+      component.lng = -74.00666230000002;
+      component.fullAddressFromAutoComplete(selectedData);
+      expect(component.postalAddress).toEqual('107 Maiden Lane Manhattan New York New York County New York United States 10038 ');
+      expect(spy).toHaveBeenCalledWith(component.detailsForm.controls, 'part2');
     });
-  });
-
-  xdescribe('Profile object', () => {
-    it('should return profile object', inject([ProfileService], (service: ProfileService) => {
-      
-      
-      component.profileId = 0;
-      service.profile.push(
-        new Profile(
-        "Rosario",
-        "Diaferia",
-        "rd@test.com",
-        "1 High road N1",
-        "12345678900",
-        'male',
-        14,
-        2,
-        1973,
-        '',
-        'test comment'));
-      
-      fixture.detectChanges();
-      //component.ngOnInit();
-      //expect(service.profile.length).toBeGreaterThan(0);
-      const name = service.profile[0].name;
-      console.log(name);
-      expect(component.firstName).toEqual(name);
-
-    }));
   });
 });

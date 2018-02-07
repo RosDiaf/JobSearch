@@ -18,7 +18,7 @@ export class RoleDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.roleId = Number.parseInt(params['id']);
-    })
+    });
   }
 
   applyRole(roleId) {
