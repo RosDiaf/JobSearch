@@ -191,7 +191,8 @@ export class DetailsComponent implements OnInit {
       this.sanitizeInputForm(this.detailsForm, part);
 
       // -- Create object, stringfy it and post
-      this.userDetailsObject = { 'telephone': controls.telephone.value,
+      this.userDetailsObject = {  'telephone': controls.telephone.value,
+                                  'gender': controls.gender.value,
                                   'day': controls.day.value,
                                   'month': controls.month.value,
                                   'year': controls.year.value };

@@ -5,3 +5,6 @@ if (this.existingProfileNewSkills) {
       console.log(controls[i].title);
     }
   }
+
+Unit test Actions
+https://angular-2-training-book.rangle.io/handout/testing/redux/simple-actions.html

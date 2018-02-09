@@ -34,4 +34,10 @@ describe('FormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit event to delete skill', () => {
+    const spy = spyOn(component.deleteSingleSkill, 'emit');
+    component.deleteSkill(0);
+    expect(spy).toHaveBeenCalledWith(0);
+  })
 });

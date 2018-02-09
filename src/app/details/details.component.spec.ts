@@ -113,6 +113,11 @@ describe('DetailsComponent', () => {
             value: '12345678900',
             valid: true
           },
+          gender: {
+            errors: { pattern: false },
+            value: 'male',
+            valid: true
+          },
           day: {
             errors: { pattern: false },
             value: '01',
@@ -183,7 +188,7 @@ describe('DetailsComponent', () => {
       const spyOnAccordionPanelSate = spyOn(component, 'accordionPanelState');
       const spySanitizeInputForm = spyOn(component, 'sanitizeInputForm');
       const spyPostUserDetails = spyOn(component, 'postUserDetails');
-      const userDetailsObjStringfy = '{"telephone":"12345678900","day":"01","month":"12","year":"2017"}';
+      const userDetailsObjStringfy = '{"telephone":"12345678900","gender":"male","day":"01","month":"12","year":"2017"}';
 
       component.goToNextStep(form.controls, 'part3');
 
