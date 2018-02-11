@@ -39,5 +39,5 @@ describe('FormComponent', () => {
     const spy = spyOn(component.deleteSingleSkill, 'emit');
     component.deleteSkill(0);
     expect(spy).toHaveBeenCalledWith(0);
-  })
+  });
 });

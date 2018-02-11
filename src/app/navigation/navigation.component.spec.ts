@@ -55,6 +55,11 @@ describe('NavigationComponent', () => {
       expect(element).not.toBeNull();
     });
 
+    it('should display \'Settings\' on active load when app load', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-cog');
+      expect(element).not.toBeNull();
+    });
+
     it('should display \'Avatar\' on active load when app load', () => {
       const element = fixture.debugElement.nativeElement.querySelector('.w3-circle');
       expect(element).not.toBeNull();

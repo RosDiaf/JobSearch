@@ -1,9 +1,8 @@
-import { TestBed, inject, ComponentFixture } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { Profile } from '../common/profile.model';
 import { ProfileService } from './profile.service';
 
 describe('ProfileService', () => {
-  let fixture: ComponentFixture<ProfileService>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -12,7 +11,7 @@ describe('ProfileService', () => {
   });
 
   let form;
-  
+
   beforeEach(() => {
     form = {
       controls: {

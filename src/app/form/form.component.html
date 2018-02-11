@@ -50,7 +50,7 @@
 
 <!-- Form : Skills field -->
 <div [formGroup]="detailsForm" *ngIf="formElementTypeSkills">
-  <p>{{(contactDetails | async)?.skills?.title}}</p>
+  <p><strong>Skills added:</strong> {{(contactDetails | async)?.skills?.title}}</p>
   <div formArrayName="skills" class="skills">
     <div *ngFor="let skillsControl of detailsForm.get('skills').controls; let i = index" [formGroupName]="i">
       <label for="label_{{i}}">Skill {{i+1}}</label>

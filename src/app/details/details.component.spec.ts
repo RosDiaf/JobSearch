@@ -200,7 +200,7 @@ describe('DetailsComponent', () => {
     it('should close fourth panel and open fifth one', () => {
 
       const spyOnAccordionPanelSate = spyOn(component, 'accordionPanelState');
-      const spySanitizeInputForm = spyOn(component, 'sanitizeInputForm')
+      const spySanitizeInputForm = spyOn(component, 'sanitizeInputForm');
       const spyPostUserDetails = spyOn(component, 'postUserDetails');
       const userDetailsObjStringfy = '[{"skill":"JavaScript"},{"skill":"Angular"}]';
 
@@ -235,16 +235,16 @@ describe('DetailsComponent', () => {
     });
 
     it('should not submit form if comments are not entered', () => {
-      
+
       form.controls.comments = '';
       const spyShowConfirmationPage = spyOn(component, 'showConfirmationPage');
       component.goToNextStep(form.controls, 'part5');
       expect(spyShowConfirmationPage).not.toHaveBeenCalledWith(form.controls);
-      
+
     });
 
     describe('Submit form', () => {
-      
+
       beforeEach(() => {
         component.profileService.profile.push(
           new Profile(
@@ -303,7 +303,7 @@ describe('DetailsComponent', () => {
         expect(component.year).toEqual(1973);
         expect(component.comments).toEqual('test comment');
       });
-      
+
       it('should clear the form if clear button is clicked', () => {
         const spy = spyOn(component, 'accordionPanelState');
         component.clearFields();
@@ -314,7 +314,7 @@ describe('DetailsComponent', () => {
     describe('Sanitize input fields', () => {
       let sanitizeService;
       beforeEach(() => {
-        sanitizeService = TestBed.get(SanitizerService)
+        sanitizeService = TestBed.get(SanitizerService);
       });
 
       it('should sanitize part 1 of the form when submitted', () => {
@@ -370,7 +370,7 @@ describe('DetailsComponent', () => {
         component.profileId = 0;
         component.setProfileData(form.controls);
         expect(spyUpdateProfileData).toHaveBeenCalledWith(form.controls, 0);
-      })
+      });
 
       it('should set profile data if profile id does not exists', () => {
         const service = TestBed.get(ProfileService);
@@ -378,8 +378,8 @@ describe('DetailsComponent', () => {
         component.profileId = -1;
         component.setProfileData(form.controls);
         expect(spySetProfileData).toHaveBeenCalledWith(form.controls);
-      })
-    });  
+      });
+    });
   });
 
   describe('Accordion panel css classes', () => {
@@ -537,7 +537,7 @@ describe('DetailsComponent', () => {
 
   describe('Profile object', () => {
     it('should assign google address value to postalAddress form field when step2 completed', () => {
-      let selectedData = { 
+      const selectedData = {
         data: {
           address_components: [
             {
@@ -546,38 +546,38 @@ describe('DetailsComponent', () => {
               types: Array(1)
             },
             {
-              long_name: "Maiden Lane", 
-              short_name: "Maiden Ln",
+              long_name: 'Maiden Lane',
+              short_name: 'Maiden Ln',
               types: Array(1)
             },
             {
-              long_name: "Manhattan", 
-              short_name: "Manhattan", 
+              long_name: 'Manhattan',
+              short_name: 'Manhattan',
               types: Array(3)
             },
             {
-              long_name: "New York", 
-              short_name: "New York", 
+              long_name: 'New York',
+              short_name: 'New York',
               types: Array(2)
             },
             {
-              long_name: "New York County", 
-              short_name: "New York County", 
+              long_name: 'New York County',
+              short_name: 'New York County',
               types: Array(2)
             },
             {
-              long_name: "New York", 
-              short_name: "NY", 
+              long_name: 'New York',
+              short_name: 'NY',
               types: Array(2)
             },
-            { 
-              long_name: "United States", 
-              short_name: "US", 
-              types: Array(2) 
+            {
+              long_name: 'United States',
+              short_name: 'US',
+              types: Array(2)
             },
-            { 
-              long_name: "10038", 
-              short_name: "10038", 
+            {
+              long_name: '10038',
+              short_name: '10038',
               types: Array(1)
             }
           ],
@@ -589,7 +589,7 @@ describe('DetailsComponent', () => {
           }
         }
       };
-      let spy = spyOn(component, 'goToNextStep');
+      const spy = spyOn(component, 'goToNextStep');
       component.lat = 40.7069492;
       component.lng = -74.00666230000002;
       component.fullAddressFromAutoComplete(selectedData);

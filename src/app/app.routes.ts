@@ -4,6 +4,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { DetailsComponent } from './details/details.component';
 import { RolesComponent } from './roles/roles.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 // Route Configuration
@@ -36,5 +37,9 @@ const routes: Routes = [
     path: 'role-details/:id',
     component: RoleDetailsComponent
   },
+  {
+    path: 'account-settings',
+    component: AccountSettingsComponent
+  }
 ];
 export const routing = RouterModule.forRoot(routes, { useHash: true });

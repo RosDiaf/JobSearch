@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+.container {
+    .w3-border-red, .w3-hover-border-red:hover {
+        border-color: $TabBorderColor!important;
+    }
+
+    .w3-container, .w3-panel {
+        padding: 0;
+    }
+}

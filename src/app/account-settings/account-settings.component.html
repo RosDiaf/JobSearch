@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Settings</h1>
+  <div class="w3-container">
+    <div class="w3-row">
+      <a href="javascript:void(0)" (click)="openTabContent($event, 'account')">
+        <div id="tab1" class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-red">Account Settings</div>
+      </a>
+      <a href="javascript:void(0)" (click)="openTabContent($event, 'notification')">
+        <div id="tab2" class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Notification Settings</div>
+      </a>
+      <a href="javascript:void(0)" (click)="openTabContent($event, 'delete')">
+        <div id="tab3" class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Delete Account</div>
+      </a>
+    </div>
+
+    <div id="account" class="w3-container tab-content">
+      <h2>London</h2>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="notification" class="w3-container tab-content" style="display:none">
+      <h2>Paris</h2>
+      <p>Paris is the capital of France.</p> 
+    </div>
+
+    <div id="delete" class="w3-container tab-content" style="display:none">
+      <h2>Tokyo</h2>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+  </div>
+</div>
