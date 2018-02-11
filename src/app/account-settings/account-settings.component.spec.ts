@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AccountSettingsComponent } from './account-settings.component';
+import { DetailSettingsComponent } from '../detail-settings/detail-settings.component';
 
 describe('AccountSettingsComponent', () => {
   let component: AccountSettingsComponent;
@@ -8,7 +9,7 @@ describe('AccountSettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountSettingsComponent ]
+      declarations: [ AccountSettingsComponent, DetailSettingsComponent ]
     })
     .compileComponents();
   }));

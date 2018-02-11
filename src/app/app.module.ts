@@ -32,6 +32,7 @@ import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store'
 import { rootReducer } from './store/rootReducer';
 import { CustomerProfileActions } from './store/profileReducer/profileActions';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { DetailSettingsComponent } from './detail-settings/detail-settings.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     DetailsComponent,
     RolesComponent,
     RoleDetailsComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    DetailSettingsComponent
   ],
   imports: [
     routing,
