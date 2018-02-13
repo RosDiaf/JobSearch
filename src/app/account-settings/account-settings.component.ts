@@ -10,7 +10,7 @@ export class AccountSettingsComponent implements OnInit {
   activeCssClass = ' w3-border-red';
   tablinks = document.getElementsByClassName('tablink');
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

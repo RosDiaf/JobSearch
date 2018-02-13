@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { AlertComponent } from '../common/alert/alert.component';
 import { AccountSettingsComponent } from './account-settings.component';
 import { DetailSettingsComponent } from '../detail-settings/detail-settings.component';
+import { ReactiveFormsModule, FormsModule, FormArray, FormGroup, FormControl } from '@angular/forms';
 
 describe('AccountSettingsComponent', () => {
   let component: AccountSettingsComponent;
@@ -9,7 +11,8 @@ describe('AccountSettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountSettingsComponent, DetailSettingsComponent ]
+      declarations: [ AccountSettingsComponent, DetailSettingsComponent, AlertComponent ],
+      imports: [ReactiveFormsModule, FormsModule]
     })
     .compileComponents();
   }));

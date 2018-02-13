@@ -1,4 +1,10 @@
+@import '../../styles/variables.scss';
 .container {
+    .w3-container {
+        background: $TabContainerBgColor;
+        border: 1px solid $TabContainerBorderColor;
+    }
+
     .w3-row {
         margin-bottom: 20px;
     }

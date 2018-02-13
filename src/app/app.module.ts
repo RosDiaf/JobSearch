@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AlertComponent } from './common/alert/alert.component';
 import { AddressComponent } from './address/address.component';
 import { AppComponent } from './app.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
@@ -39,6 +40,7 @@ import { DetailSettingsComponent } from './detail-settings/detail-settings.compo
   declarations: [
     AppComponent,
     ConfirmationComponent,
+    AlertComponent,
     AddressComponent,
     FormComponent,
     ProfilesComponent,

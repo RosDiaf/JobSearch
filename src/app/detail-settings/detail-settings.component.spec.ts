@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AlertComponent } from '../common/alert/alert.component';
 import { DetailSettingsComponent } from './detail-settings.component';
 import { By } from '@angular/platform-browser';
 import { ElementRef } from '@angular/core';
+import { ReactiveFormsModule, FormsModule, FormArray, FormGroup, FormControl } from '@angular/forms';
 
 describe('DetailSettingsComponent', () => {
   let component: DetailSettingsComponent;
@@ -9,7 +11,8 @@ describe('DetailSettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailSettingsComponent ]
+      declarations: [ DetailSettingsComponent, AlertComponent ],
+      imports: [ReactiveFormsModule, FormsModule]
     })
     .compileComponents();
   }));
@@ -79,6 +82,50 @@ describe('DetailSettingsComponent', () => {
     it('should contain \"change password\" label', () => {
       const elementAcc = fixture.debugElement.nativeElement.querySelector('#tab2');
       expect(elementAcc.textContent).toContain('Change Password');
+    });
+  });
+
+  describe('Submit form', () => {
+    let form;
+    beforeEach(() => {
+      form = {
+        controls: {
+          email: {
+            errors: { pattern: false },
+            value: 'ros@aol.com',
+            valid: true
+          },
+          password: {
+            errors: { pattern: false },
+            value: 'Ros12^sfss',
+            valid: true
+          },
+        }
+      };
+    });
+
+    it('should submit form if validation passed', () => {
+      component.isSubmitted = false;
+      component.emailUpdateForm.controls['email'].setValue('ros@aol.com');
+      component.emailUpdateForm.controls['password'].setValue('Ros12^sfss');
+      component.onSubmit();
+      expect(component.isSubmitted).toBeTruthy();
+    });
+
+    it('should not submit form if invalid email', () => {
+      component.isSubmitted = false;
+      component.emailUpdateForm.controls['email'].setValue('ros@aol.');
+      component.emailUpdateForm.controls['password'].setValue('Ros12^sfss');
+      component.onSubmit();
+      expect(component.isSubmitted).toBeFalsy();
+    });
+
+    it('should not submit form if invalid password', () => {
+      component.isSubmitted = false;
+      component.emailUpdateForm.controls['email'].setValue('ros@aol.com');
+      component.emailUpdateForm.controls['password'].setValue('Ros');
+      component.onSubmit();
+      expect(component.isSubmitted).toBeFalsy();
     });
   });
 });
