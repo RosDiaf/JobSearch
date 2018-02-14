@@ -34,6 +34,7 @@ import { rootReducer } from './store/rootReducer';
 import { CustomerProfileActions } from './store/profileReducer/profileActions';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { DetailSettingsComponent } from './detail-settings/detail-settings.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { DetailSettingsComponent } from './detail-settings/detail-settings.compo
     RolesComponent,
     RoleDetailsComponent,
     AccountSettingsComponent,
-    DetailSettingsComponent
+    DetailSettingsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     routing,
