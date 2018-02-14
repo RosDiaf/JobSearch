@@ -8,5 +8,6 @@ export const alert = {
     year: 'Enter valid year (only numbers [e.g. 1000 to 2999])',
     comment: 'Enter valid commment (only 250 alphanumeric characters)',
     skill: 'Enter correct skill',
-    emailUpdatedSuccessfully: 'Email successfully updated!'
+    emailUpdatedSuccessfully: 'Email successfully updated!',
+    passwordUpdatedSuccessfully: 'Password successfully updated!'
 };

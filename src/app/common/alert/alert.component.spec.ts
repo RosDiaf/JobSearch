@@ -42,4 +42,13 @@ describe('AlertComponent', () => {
     const elSection1: HTMLElement = deSection1[0].nativeElement;
     expect(elSection1.textContent).toEqual('Email successfully updated!');
   });
+
+  it('should display message enclosed in h3 tag if password form is submitted', () => {
+    component.isSubmitted = true;
+    component.message = alert.passwordUpdatedSuccessfully;
+    fixture.detectChanges();
+    const deSection1 = fixture.debugElement.queryAll(By.css('#panel h3'));
+    const elSection1: HTMLElement = deSection1[0].nativeElement;
+    expect(elSection1.textContent).toEqual('Password successfully updated!');
+  });
 });

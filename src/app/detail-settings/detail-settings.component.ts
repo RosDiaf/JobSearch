@@ -11,12 +11,15 @@ import { alert } from '../common/alert.messages';
 export class DetailSettingsComponent implements OnInit {
 
   emailUpdateForm: FormGroup;
+  passwordUpdateForm: FormGroup;
   isSubmitted: boolean;
-  emailUpdatedSuccessfully: string;
+  isPasswordSubmitted: boolean;
+  updatedSuccessfully: string;
   tabAccordion;
 
   constructor(private formBuilder: FormBuilder) {
     this.buildEmailUpdateForm();
+    this.buildPasswordUpdateForm();
   }
 
   ngOnInit() {
@@ -27,6 +30,15 @@ export class DetailSettingsComponent implements OnInit {
       email: this.formBuilder.control(null, [Validators.required,
         Validators.pattern('^[a-zA-Z]+[a-zA-Z0-9_#\'\\?`\\.{}-]*@[a-zA-Z]+[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[A-Za-z]{2,})$')]),
       password: this.formBuilder.control(null, [Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,}).+$')]),
+    });
+  }
+
+  buildPasswordUpdateForm() {
+    this.passwordUpdateForm = this.formBuilder.group({
+      password: this.formBuilder.control(null, [Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,}).+$')]),
+      retype: this.formBuilder.control(null, [Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,}).+$')]),
     });
   }
@@ -43,7 +55,10 @@ export class DetailSettingsComponent implements OnInit {
   onSubmit() {
     if (this.emailUpdateForm.valid) {
       this.isSubmitted = true;
-      this.emailUpdatedSuccessfully = alert.emailUpdatedSuccessfully;
+      this.updatedSuccessfully = alert.emailUpdatedSuccessfully;
+    } else if (this.passwordUpdateForm.valid) {
+      this.isPasswordSubmitted = true;
+      this.updatedSuccessfully = alert.passwordUpdatedSuccessfully;
     }
   }
 }
