@@ -4,6 +4,7 @@ import { DetailSettingsComponent } from './detail-settings.component';
 import { By } from '@angular/platform-browser';
 import { ElementRef } from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormArray, FormGroup, FormControl } from '@angular/forms';
+import { alert } from '../common/alert.messages';
 
 describe('DetailSettingsComponent', () => {
   let component: DetailSettingsComponent;
@@ -85,7 +86,7 @@ describe('DetailSettingsComponent', () => {
     });
   });
 
-  describe('Submit form', () => {
+  describe('Submit email form update', () => {
     let form;
     beforeEach(() => {
       form = {
@@ -110,6 +111,7 @@ describe('DetailSettingsComponent', () => {
       component.emailUpdateForm.controls['password'].setValue('Ros12^sfss');
       component.onSubmit();
       expect(component.isSubmitted).toBeTruthy();
+      expect(component.updatedSuccessfully).toEqual(alert.emailUpdatedSuccessfully);
     });
 
     it('should not submit form if invalid email', () => {
@@ -126,6 +128,43 @@ describe('DetailSettingsComponent', () => {
       component.emailUpdateForm.controls['password'].setValue('Ros');
       component.onSubmit();
       expect(component.isSubmitted).toBeFalsy();
+    });
+  });
+
+  describe('Submit password update form', () => {
+    let form;
+    beforeEach(() => {
+      form = {
+        controls: {
+          password: {
+            errors: { pattern: false },
+            value: 'Ros12^sfss',
+            valid: true
+          },
+          retype: {
+            errors: { pattern: false },
+            value: 'Ros12^sfss',
+            valid: true
+          },
+        }
+      };
+    });
+    
+    it('should submit form if validation passed', () => {
+      component.isPasswordSubmitted  = false;
+      component.passwordUpdateForm.controls['password'].setValue('Ros12^sfss');
+      component.passwordUpdateForm.controls['retype'].setValue('Ros12^sfss');
+      component.onSubmit();
+      expect(component.isPasswordSubmitted).toBeTruthy();
+      expect(component.updatedSuccessfully).toEqual(alert.passwordUpdatedSuccessfully);
+    });
+
+    it('should not submit form if validation is not passed', () => {
+      component.isPasswordSubmitted  = false;
+      component.passwordUpdateForm.controls['password'].setValue('Ros12^sfss');
+      component.passwordUpdateForm.controls['retype'].setValue('Ros12');
+      component.onSubmit();
+      expect(component.isPasswordSubmitted).toBeFalsy();
     });
   });
 });

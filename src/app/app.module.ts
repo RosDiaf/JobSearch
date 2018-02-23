@@ -36,6 +36,11 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { DetailSettingsComponent } from './detail-settings/detail-settings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+// -- Auth Guard
+import { AuthService } from './api/auth.service';
+import { AuthGuard } from './api/auth-guard.service';
+import { AuthLoginComponent } from './auth-login/auth-login.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +56,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RoleDetailsComponent,
     AccountSettingsComponent,
     DetailSettingsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AuthLoginComponent
   ],
   imports: [
     routing,
@@ -67,7 +73,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       apiKey: constants.API_KEY
     })
   ],
-  providers: [PostDetailsService, SanitizerService, ProfileService, CustomerProfileActions],
+  providers: [PostDetailsService, 
+              SanitizerService, 
+              ProfileService, 
+              CustomerProfileActions, 
+              AuthService, 
+              AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

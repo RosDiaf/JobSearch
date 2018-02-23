@@ -2,6 +2,7 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from './api/auth.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +13,8 @@ describe('AppComponent', () => {
       ],
       imports: [
         RouterTestingModule,
-      ]
+      ],
+      providers: [AuthService]
     }).compileComponents();
   }));
 

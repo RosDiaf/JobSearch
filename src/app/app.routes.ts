@@ -1,4 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
+import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { AuthGuard } from './api/auth-guard.service';
 import { AppComponent } from './app.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { DetailsComponent } from './details/details.component';
@@ -10,14 +12,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 // Route Configuration
 const routes: Routes = [
-  { path: '', component: RolesComponent },
-  { path: 'home', component: RolesComponent },
-  { path: 'profiles', component: ProfilesComponent },
-  { path: 'details', component: DetailsComponent },
-  { path: 'details/:id', component: DetailsComponent },
-  { path: 'apply/:id', component: DetailsComponent },
-  { path: 'role-details/:id', component: RoleDetailsComponent },
-  { path: 'account-settings', component: AccountSettingsComponent },
+  { path: '', component: AuthLoginComponent },
+  { path: 'home', component: RolesComponent, canActivate: [AuthGuard] },
+  { path: 'profiles', component: ProfilesComponent, canActivate: [AuthGuard] },
+  { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'apply/:id', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'role-details/:id', component: RoleDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

@@ -8,3 +8,41 @@ if (this.existingProfileNewSkills) {
 
 Unit test Actions
 https://angular-2-training-book.rangle.io/handout/testing/redux/simple-actions.html
+
+
+xit('should check is authenticated', () => {
+    subject.loggedIn = false;
+    subject.isAuthenticated();
+    const ZoneAwarePromise = {
+        __zone_symbol__state: true,
+        __zone_symbol__value: true
+    }
+    const promise = new Promise(
+        (resolve, reject) => {
+                setTimeout(() => {
+                    resolve(subject.loggedIn);
+                }, 800);
+            }
+        ); 
+
+    
+    expect(subject.loggedIn).toBeTruthy();
+  });
+
+
+  it('should test some asynchronous code', fakeAsync(() => {
+    subject.loggedIn = false;
+
+    subject.isAuthenticated();
+
+    Promise.resolve(true).then((result) => {
+      setTimeout(() => {
+        subject.loggedIn = true;
+      }, 800);
+    });
+
+    flushMicrotasks();
+
+    expect(subject.loggedIn).toBe(true);
+    // https://www.joshmorony.com/testing-asynchronous-code-with-fakeasync-in-angular/
+  }));

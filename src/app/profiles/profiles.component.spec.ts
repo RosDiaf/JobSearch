@@ -8,8 +8,6 @@ import { Router, RouterModule } from '@angular/router';
 import { NgRedux, select } from '@angular-redux/store';
 import { CustomerProfileActions } from '../store/profileReducer/profileActions';
 
-
-
 class RouterStub {
   navigateByUrl(url: string) {
     return url;

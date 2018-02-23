@@ -66,3 +66,6 @@ http://onehungrymind.com/build-better-angular-2-application-redux-ngrx/
 
 ### Test coverage (Istanbul)
 $ ng test --code-coverage
+
+### Create password
+https://www.npmjs.com/package/bcrypt

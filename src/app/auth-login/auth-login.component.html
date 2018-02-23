@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Login</h1>
+    <div class="role-description">
+      <div class="w3-card-4">
+        <div class="w3-container w3-blue">
+          <h2>Login to your account</h2>
+        </div>
+        <form class="w3-container user-account-form" [formGroup]="accountForm" (ngSubmit)="onSubmit()" *ngIf="!isSubmitted">
+          <div>      
+            <label class="w3-text-brown"><b>User name</b></label>
+            <input class="w3-input w3-border w3-sand" id="username" type="text" formControlName="username">
+            <div class="alert" *ngIf="(!accountForm.controls['username'].valid && accountForm.controls['username'].touched)">
+              Username incorrect.
+            </div>
+          </div>
+          <div>      
+            <label class="w3-text-brown"><b>Password</b></label>
+            <input class="w3-input w3-border w3-sand" id="password" type="password" formControlName="password">
+            <div class="alert" *ngIf="(!accountForm.controls['password'].valid && accountForm.controls['password'].touched)">
+              Password incorrect.
+            </div>
+          </div>
+          <p>
+          <button class="w3-btn w3-blue" type="sumbit">Login</button>
+          <button class="w3-btn w3-black">Forgot password</button></p>
+        </form>
+      </div>
+    </div>
+</div> 

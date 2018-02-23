@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NavigationComponent } from './navigation.component';
+import { AuthService } from '../api/auth.service';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -8,7 +9,8 @@ describe('NavigationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavigationComponent ]
+      declarations: [ NavigationComponent ],
+      providers: [AuthService]
     })
     .compileComponents();
   }));
@@ -50,33 +52,68 @@ describe('NavigationComponent', () => {
       expect(element).not.toBeNull();
     });
 
-    it('should display \'Bell Icon\' on active load when app load', () => {
+    it('should not display \'Bell Icon\' on active load when logged out', () => {
       const element = fixture.debugElement.nativeElement.querySelector('.fa-bell');
-      expect(element).not.toBeNull();
+      expect(element).toBeNull();
     });
 
-    it('should display \'Settings\' on active load when app load', () => {
+    it('should not display \'Settings\' on active load when logged out', () => {
       const element = fixture.debugElement.nativeElement.querySelector('.fa-cog');
       expect(element).not.toBeNull();
     });
 
-    it('should display \'Avatar\' on active load when app load', () => {
+    it('should not display \'Avatar\' on active load when logged out', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('.w3-circle');
+      expect(element).toBeNull();
+    });
+  });
+
+  describe('Navigation menu user looged it', () => {
+    it('should display \'Bell Icon\' on active load when logged in', () => {
+      const authService = TestBed.get(AuthService);
+      component.authService.loggedIn = true;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-bell');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'Settings\' on active load when logged in', () => {
+      const authService = TestBed.get(AuthService);
+      component.authService.loggedIn = true;
+      fixture.detectChanges();
+      const element = fixture.debugElement.nativeElement.querySelector('.fa-cog');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display \'Avatar\' on active load when logged in', () => {
+      const authService = TestBed.get(AuthService);
+      component.authService.loggedIn = true;
+      fixture.detectChanges();
       const element = fixture.debugElement.nativeElement.querySelector('.w3-circle');
       expect(element).not.toBeNull();
     });
   });
 
   describe('Dropdown contents', () => {
-    it('should display dropdown content on active load when app load', () => {
+    it('should not display dropdown content on active load when logged out', () => {
       const element = fixture.debugElement.nativeElement.querySelector('.w3-dropdown-content');
-      expect(element).not.toBeNull();
+      expect(element).toBeNull();
     });
 
-    it('should display dropdown content first item on active load when app load', () => {
+    it('should not display dropdown content first item on active when logged out', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('#content_0');
+      expect(element).toBeNull();
+    });
+
+    it('should display dropdown content first item on active when logged in', () => {
+      const authService = TestBed.get(AuthService);
+      component.authService.loggedIn = true;
+      fixture.detectChanges();
       const element = fixture.debugElement.nativeElement.querySelector('#content_0');
       expect(element).not.toBeNull();
       expect(element.textContent).toContain('One new friend request');
     });
+
   });
 
   describe('Navbar on small screen', () => {
@@ -136,6 +173,15 @@ describe('NavigationComponent', () => {
       const element = fixture.debugElement.nativeElement.querySelector('#small-screen-item-4');
       expect(element).not.toBeNull();
       expect(element.textContent).toContain('My Profile');
+    });
+  });
+
+  describe('Log out', () => {
+    it('should log out when clicking the log out link', () => {
+      const authService = TestBed.get(AuthService);
+      const spy = spyOn(authService, 'logout');
+      component.onLogout();
+      expect(spy).toHaveBeenCalled();
     });
   });
 });
