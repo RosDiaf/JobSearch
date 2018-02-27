@@ -66,7 +66,7 @@ describe('DetailsComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         },
         { provide: SanitizerService, useClass: MockSanitizer },
-        { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 1 }]) } }
+        { provide: ActivatedRoute, useValue: { 'params': Observable.from([{ 'id': 1, 'roleid': 1 }]) } }
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
@@ -258,7 +258,8 @@ describe('DetailsComponent', () => {
           2,
           1973,
           '[{"skill":"JavaScript"},{"skill":"Angular"}]',
-          'test comment'));
+          'test comment',
+          0));
       });
 
       it('should set submit to true and update redux store', () => {
@@ -283,6 +284,8 @@ describe('DetailsComponent', () => {
       it('should add profile data to profile object array', () => {
         const profileService = TestBed.get(ProfileService);
         const spy = spyOn(component, 'existingFormValues');
+        component.profileId = 0;
+        component.roleId = 0;
         component.ngOnInit();
         expect(profileService.profile.length).toEqual(1);
         expect(spy).toHaveBeenCalled();
@@ -291,6 +294,7 @@ describe('DetailsComponent', () => {
       it('should set existing form value available for ngModel', () => {
         const profileService = TestBed.get(ProfileService);
         component.profileId = 0;
+        component.roleId = 0;
         component.existingFormValues();
         expect(component.firstName).toEqual('Rosario');
         expect(component.lastName).toEqual('Diaferia');
@@ -368,16 +372,18 @@ describe('DetailsComponent', () => {
         const service = TestBed.get(ProfileService);
         const spyUpdateProfileData = spyOn(service, 'updateProfileData');
         component.profileId = 0;
+        component.roleId = 0;
         component.setProfileData(form.controls);
-        expect(spyUpdateProfileData).toHaveBeenCalledWith(form.controls, 0);
+        expect(spyUpdateProfileData).toHaveBeenCalledWith(form.controls, 0, 0);
       });
 
       it('should set profile data if profile id does not exists', () => {
         const service = TestBed.get(ProfileService);
         const spySetProfileData = spyOn(service, 'setProfileData');
         component.profileId = -1;
+        component.roleId = 0;
         component.setProfileData(form.controls);
-        expect(spySetProfileData).toHaveBeenCalledWith(form.controls);
+        expect(spySetProfileData).toHaveBeenCalledWith(form.controls, 0);
       });
     });
   });

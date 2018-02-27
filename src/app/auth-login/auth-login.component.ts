@@ -14,9 +14,9 @@ export class AuthLoginComponent implements OnInit {
   accountForm: FormGroup;
   isSubmitted: boolean;
 
-  constructor(private formBuilder: FormBuilder, 
+  constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
-              public router: Router) { 
+              public router: Router) {
     this.buildAccountForm();
   }
 
@@ -27,11 +27,11 @@ export class AuthLoginComponent implements OnInit {
     this.accountForm = this.formBuilder.group({
       username: this.formBuilder.control(null, [Validators.required, Validators.pattern(constants.username)]),
       password: this.formBuilder.control(null, [Validators.required, Validators.pattern(constants.password)])
-    })
+    });
   }
 
   onSubmit() {
-    if(this.accountForm.valid) {
+    if (this.accountForm.valid) {
       this.authService.login();
       this.isSubmitted = true;
       this.router.navigateByUrl('profiles');

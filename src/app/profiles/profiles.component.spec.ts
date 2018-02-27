@@ -1,5 +1,6 @@
 import { async, inject, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ProfilesComponent } from './profiles.component';
 import { ProfileService } from '../api/profile.service';
 import { Profile } from '../common/profile.model';
@@ -21,7 +22,7 @@ describe('ProfilesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfilesComponent ],
+      declarations: [ ProfilesComponent, MyProfileComponent ],
       providers: [
         ProfileService,
         NgRedux,
@@ -61,7 +62,8 @@ describe('ProfilesComponent', () => {
           {title: 'Javascript'},
           {title: 'Angular'}
         ],
-        comments: 'test'
+        comments: 'test',
+        roleID: 0
       }
     ];
     component.deleteProfile(0);

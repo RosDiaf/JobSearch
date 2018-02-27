@@ -8,7 +8,7 @@ export class ProfileService {
 
   constructor() { }
 
-  setProfileData(controls) {
+  setProfileData(controls, roleID) {
     this.profile.push(
       new Profile(
         controls.name.value,
@@ -21,12 +21,13 @@ export class ProfileService {
         controls.month.value,
         controls.year.value,
         controls.skills.value,
-        controls.comments.value
+        controls.comments.value,
+        roleID
       )
     );
   }
 
-  updateProfileData(controls, index) {
+  updateProfileData(controls, roleID, index) {
     this.profile.splice(index, 1,
       new Profile(
         controls.name.value,
@@ -39,7 +40,8 @@ export class ProfileService {
         controls.month.value,
         controls.year.value,
         controls.skills.value,
-        controls.comments.value
+        controls.comments.value,
+        roleID
     ));
   }
 

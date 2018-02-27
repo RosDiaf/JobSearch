@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'profiles', component: ProfilesComponent, canActivate: [AuthGuard] },
   { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard] },
-  { path: 'apply/:id', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'apply/:roleid', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'role-details/:id', component: RoleDetailsComponent, canActivate: [AuthGuard] },
   { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: PageNotFoundComponent },

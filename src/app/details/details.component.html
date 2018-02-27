@@ -8,17 +8,6 @@
     <p>Service Failed, your details have not been sent!</p>
   </div>
 
-  <!--<div>
-    <p>{{(personalDetails | async)?.forename}}</p>
-    <p>{{(personalDetails | async)?.surname}}</p>
-    <p>{{(personalDetails | async)?.gender}}</p>
-    <p>{{(contactDetails | async)?.postalAddress?.line1}}</p>
-    <p>{{(contactDetails | async)?.telephoneNumbers?.home}}</p>
-    <p>{{(personalDetails | async)?.dateOfBirth}}</p>
-    <p>{{(contactDetails | async)?.comments?.content}}</p>
-    <p>{{(contactDetails | async)?.skills?.title}}</p>
-  </div>-->
-
   <form [formGroup]="detailsForm" *ngIf="!submitted else thankYouPage">
     <!-- ACCORDION : start  -->
     <div class="accordionWrapper">

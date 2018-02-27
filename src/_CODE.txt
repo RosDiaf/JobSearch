@@ -1,3 +1,6 @@
+TEMPLATE:
+https://www.w3schools.com/w3css/tryw3css_templates_social.htm
+
 if (this.existingProfileNewSkills) {
     // this.existingSkills = this.profileService.getProfileData(0);
     const controls = <FormArray>this.detailsForm.controls['skills'].value;
@@ -46,3 +49,14 @@ xit('should check is authenticated', () => {
     expect(subject.loggedIn).toBe(true);
     // https://www.joshmorony.com/testing-asynchronous-code-with-fakeasync-in-angular/
   }));
+
+
+
+  describe('Content details', () => {
+    it('should show forename and surname when position applied', () => {
+      component.userAccountDetails = customerData.customerData.userAccoutDetails;
+      const name = customerData.customerData.userAccoutDetails.personalDetails.forename;
+      const elementAcc = fixture.debugElement.nativeElement.querySelector('#name');
+      expect(elementAcc.textContent).toContain(component.userAccountDetails.personalDetails.forename);
+    });
+  });

@@ -10,6 +10,7 @@ export class Profile {
     public year: number;
     public skills: any;
     public comments: string;
+    public roleID: number;
 
     constructor(
         name: string,
@@ -22,7 +23,8 @@ export class Profile {
         month: number,
         year: number,
         skills: any,
-        comments: string) {
+        comments: string,
+        roleID: number) {
 
         this.name = name;
         this.surname = surname;
@@ -35,5 +37,6 @@ export class Profile {
         this.year = year;
         this.skills = skills;
         this.comments = comments;
+        this.roleID = roleID;
     }
 }

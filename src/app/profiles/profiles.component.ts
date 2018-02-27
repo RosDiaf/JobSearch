@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ProfileService } from '../api/profile.service';
 import { Router } from '@angular/router';
+import { positions } from '../common/positions';
 
 // -- Redux
 import { NgRedux, select } from '@angular-redux/store';
@@ -15,12 +17,15 @@ import { CustomerProfileActions } from '../store/profileReducer/profileActions';
 })
 export class ProfilesComponent implements OnInit {
 
+  @select(['customerProfile', 'customerData', 'userAccoutDetails']) userAccountDetails: Observable<any>;
   @select(['customerProfile', 'customerData', 'personalDetails']) personalDetails: Observable<any>;
   @select(['customerProfile', 'customerData', 'contactDetails']) contactDetails: Observable<any>;
 
+  positions = positions;
+
   constructor(public profileService: ProfileService,
               public router: Router,
-              private customerProfileActions: CustomerProfileActions) { }
+              private customerProfileActions: CustomerProfileActions) {}
 
   ngOnInit() {
   }

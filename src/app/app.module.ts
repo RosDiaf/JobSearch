@@ -27,6 +27,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { DetailsComponent } from './details/details.component';
 import { RolesComponent } from './roles/roles.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
+import { MyProfileComponent } from './profiles/my-profile/my-profile.component';
 
 // -- Redux
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
@@ -40,7 +41,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthService } from './api/auth.service';
 import { AuthGuard } from './api/auth-guard.service';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
-
 
 @NgModule({
   declarations: [
@@ -57,7 +57,8 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
     AccountSettingsComponent,
     DetailSettingsComponent,
     PageNotFoundComponent,
-    AuthLoginComponent
+    AuthLoginComponent,
+    MyProfileComponent
   ],
   imports: [
     routing,
@@ -73,11 +74,11 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
       apiKey: constants.API_KEY
     })
   ],
-  providers: [PostDetailsService, 
-              SanitizerService, 
-              ProfileService, 
-              CustomerProfileActions, 
-              AuthService, 
+  providers: [PostDetailsService,
+              SanitizerService,
+              ProfileService,
+              CustomerProfileActions,
+              AuthService,
               AuthGuard],
   bootstrap: [AppComponent]
 })

@@ -79,6 +79,11 @@ describe('ProfileService', () => {
           errors: { pattern: false },
           value: 'Test comments',
           valid: true
+        },
+        roleID: {
+          errors: { pattern: false },
+          value: 0,
+          valid: true
         }
       }
     };
@@ -102,13 +107,14 @@ describe('ProfileService', () => {
       2,
       1973,
       '[{"skill":"JavaScript"},{"skill":"Angular"}]',
-      'test comment'));
+      'test comment',
+      0));
     service.getProfileData(index);
     expect(service.profile.length).toEqual(1);
   }));
 
   it('should add profile data object to profile array', inject([ProfileService], (service: ProfileService) => {
-    service.setProfileData(form.controls);
+    service.setProfileData(form.controls, 0);
     expect(service.profile.length).toEqual(1);
 
     service.profile.push(
@@ -123,7 +129,8 @@ describe('ProfileService', () => {
       2,
       1973,
       '[{"skill":"JavaScript"},{"skill":"Angular"}]',
-      'test comment'));
+      'test comment',
+      0));
 
       expect(service.profile.length).toEqual(2);
   }));
@@ -141,8 +148,9 @@ describe('ProfileService', () => {
       2,
       1973,
       '[{"skill":"JavaScript"},{"skill":"Angular"}]',
-      'test comment'));
-    service.updateProfileData(form.controls, 1);
+      'test comment',
+      0));
+    service.updateProfileData(form.controls, 0, 1);
     service.profile.splice(0, 1);
     expect(service.profile.length).toEqual(1);
   }));

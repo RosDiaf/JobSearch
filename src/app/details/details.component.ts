@@ -88,8 +88,8 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.profileId = Number.parseInt(params['id']);
-      this.roleId = Number.parseInt(params['id']);
-      if (this.profileService.profile.length > 0) {
+      this.roleId = Number.parseInt(params['roleid']);
+      if (this.profileService.profile.length > 0 && this.profileId > -1) {
         this.existingFormValues();
       }
     });
@@ -305,11 +305,11 @@ export class DetailsComponent implements OnInit {
   }
 
   setProfileData(controls) {
-    if (this.profileId !== -1) {
-      this.profileService.updateProfileData(controls, this.profileId);
+    if (this.profileId > -1) {
+      this.profileService.updateProfileData(controls, this.roleId, this.profileId);
       return false;
     } else {
-      this.profileService.setProfileData(controls);
+      this.profileService.setProfileData(controls, this.roleId);
       return false;
     }
   }

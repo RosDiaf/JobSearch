@@ -1,5 +1,30 @@
 export const customerData = {
     customerData: {
+        userAccoutDetails: {
+            userEmailAddresses: {
+                userPersonal: 'rosdiaf@aol.com',
+                userWork: '',
+            },
+            postalAddress: {
+                line1: '311 Maidstone Road',
+                line2: 'London',
+                line3: 'UK',
+                line4: '',
+                postcode: 'N22 2TS'
+            },
+            telephoneNumbers: {
+                home: '020822233329',
+                mobile: '07922383177',
+                work: ''
+            },
+            personalDetails: {
+                dateOfBirth: '14 Feb 1973',
+                forename: 'Rosario',
+                gender: 'male',
+                surname: 'Diaferia',
+                title: ''
+            }
+        },
         contactDetails: {
             emailAddresses: {
                 personal: 'personal@personal.com',

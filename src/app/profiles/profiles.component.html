@@ -1,39 +1,35 @@
-<div class="container">
-  <h1>Profile Details</h1>
-  <table>
-    <tr>
-      <th id="profile-first-header">Name</th>
-      <th id="profile-second-header">Surname</th>
-      <th id="profile-second-header">Gender</th>
-      <th id="profile-third-header">Email</th>
-      <th id="profile-third-header">Address</th>
-      <th id="profile-fourth-header">Telephone</th>
-      <th id="profile-fifth-header">Date of birth</th>
-      <th id="profile-sixth-header">Comments</th>
-      <th id="profile-seventh-header">Skills</th>
-      <th id="btn-edit">Edit</th>
-      <th id="btn-remove">Remove</th>
-    </tr>
-    <tr *ngFor="let profile of profileService.profile; let i = index">
-      <td>{{profile.name}}</td>
-      <td>{{profile.surname}}</td>
-      <td>{{profile.gender}}</td>
-      <td>{{profile.email}}</td>
-      <td>{{profile.address}}</td>
-      <td>{{profile.telephone}}</td>
-      <td>{{profile.day}}/{{profile.month}}/{{profile.year}}</td>
-      <td>{{profile.comments}}</td>
-      <td>
-        <span *ngFor="let skill of profile.skills">
-          {{skill.title}}
-        </span>
-      </td>
-      <td>
-        <button type="button" class="button2" (click)="editProfile(i)">Edit</button>
-      </td>
-      <td>
-        <button type="button" class="button3" (click)="deleteProfile(i)">X</button>
-      </td>
-    </tr>
-  </table>
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:40px">
+  <div class="w3-row">
+    <div class="w3-col m3">
+      <app-my-profile [userAccountDetails]="userAccountDetails"></app-my-profile>
+    </div>
+    <div class="w3-col m7">
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-container w3-card w3-white w3-round w3-margin" *ngFor="let profile of profileService.profile; let i = index">
+            <div class="job-applied" id="job-applied-{{i}}">
+              <img src="/assets/img/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right">
+              <span class="w3-right w3-opacity"><i class="fas fa-check"></i> Applied</span>
+              <h4>{{profile.name}} {{profile.surname}}</h4><br>
+              <hr class="w3-clear">
+              <h5><strong>Position:</strong></h5>
+              <p>{{positions[profile.roleID].title}} - {{positions[profile.roleID].location}} - {{positions[profile.roleID].type}} - {{positions[profile.roleID].salary}}</p>
+              <ul>
+                <li>{{profile.email}}</li>
+                <li>{{profile.telephone}}</li>
+                <li>
+                  <span *ngFor="let skill of profile.skills">
+                      {{skill.title}}
+                  </span>
+                </li>
+                <li>{{profile.comments}}</li>
+              </ul>
+              <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom" (click)="editProfile(i)"><i class="fas fa-edit"></i> &nbsp;Edit</button> 
+              <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom" (click)="deleteProfile(i)"><i class="fas fa-trash"></i> &nbsp;Delete</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -149,7 +149,7 @@ describe('DetailSettingsComponent', () => {
         }
       };
     });
-    
+
     it('should submit form if validation passed', () => {
       component.isPasswordSubmitted  = false;
       component.passwordUpdateForm.controls['password'].setValue('Ros12^sfss');

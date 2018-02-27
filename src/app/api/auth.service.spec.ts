@@ -3,7 +3,7 @@ import { HttpModule, Http, Response, BaseRequestOptions, ResponseOptions, Reques
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { AuthService } from './auth.service';
 
-fdescribe('AuthService', () => {
+describe('AuthService', () => {
   let subject: AuthService;
   let backend: MockBackend;
 

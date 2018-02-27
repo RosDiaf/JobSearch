@@ -1,0 +1,13 @@
+<div class="w3-card w3-round w3-white">
+  <div class="w3-container">
+    <h4 class="w3-center" id="my-profile">My Profile</h4>
+    <p class="w3-center"><img src="/assets/img/avatar3.png" class="w3-circle" alt="Avatar" id="avatar"></p>
+    <hr>
+    <p><i class="fas fa-user fa-fw w3-margin-right w3-text-theme"></i> <span id="name">{{(userAccountDetails | async)?.personalDetails?.forename}} {{(userAccountDetails | async)?.personalDetails?.surname}}</span></p>
+    <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{(userAccountDetails | async)?.postalAddress?.line1}} {{(userAccountDetails | async)?.postalAddress?.line2}}</p>
+    <p><i class="fas fa-calendar-alt fa-fw w3-margin-right w3-text-theme"></i> {{(userAccountDetails | async)?.personalDetails?.dateOfBirth}}</p>
+    <p><i class="fas fa-phone fa-fw w3-margin-right w3-text-theme"></i> {{(userAccountDetails | async)?.telephoneNumbers?.home}}</p>
+    <p><i class="fas fa-mobile fa-fw w3-margin-right w3-text-theme"></i> {{(userAccountDetails | async)?.telephoneNumbers?.mobile}}</p>
+    <p><i class="fas fa-at fa-fw w3-margin-right w3-text-theme"></i> {{(userAccountDetails | async)?.userEmailAddresses?.userPersonal}}</p>
+  </div>
+</div>

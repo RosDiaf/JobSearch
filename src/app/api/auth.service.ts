@@ -6,11 +6,9 @@ export class AuthService {
         (resolve, reject) => {
                 setTimeout(() => {
                     resolve(this.loggedIn);
-                    console.log(this.loggedIn);
                 }, 800);
             }
         );
-        console.log(promise);
         return promise;
     }
 
@@ -22,4 +20,3 @@ export class AuthService {
         this.loggedIn = false;
     }
 }
-  
