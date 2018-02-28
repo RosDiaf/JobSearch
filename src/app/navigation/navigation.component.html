@@ -16,7 +16,7 @@
       </div>
     </div>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account" *ngIf="this.authService.loggedIn">
-      <a href="#" (click)="onLogout()">Logout</a>
+      <a href="#" (click)="onLogout()" class="loggedin">Logout</a>
       <img src="/assets/img/avatar2.png" class="w3-circle" alt="Avatar">
     </a>
   </div>

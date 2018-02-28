@@ -1,6 +1,5 @@
 @import './styles/w3c.css';
 @import './styles/variables.scss';
-// @import './styles/base.scss';
 @import './styles/mixins.scss';
 @import './styles/modules/accordion.scss';
 @import './styles/modules/alert.scss';
@@ -8,6 +7,12 @@
 @import './styles/modules/box.scss';
 @import './styles/layout.scss';
 @import './styles/theme/theme-blue-grey.scss';
+
+html, body{    
+    font-family: $globalFontFamily;
+    background: $globalBgColor;
+    font-size: 0.9em;
+}
 
 h2 {font-size: 0.9em; }
 .clearfix::after {
@@ -64,4 +69,8 @@ button.delete {
 button.clear { 
     margin-right: 5px;
     background: $buttonClearFields;
+}
+
+.strong {
+    font-weight: bold;
 }

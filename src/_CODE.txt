@@ -60,3 +60,7 @@ xit('should check is authenticated', () => {
       expect(elementAcc.textContent).toContain(component.userAccountDetails.personalDetails.forename);
     });
   });
+
+  Create Alerts
+  https://www.cwjobs.co.uk/JobSearch/JobsByEmailSetup.aspx
+  

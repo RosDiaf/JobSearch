@@ -1,35 +1,54 @@
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:40px">
-  <div class="w3-row">
-    <div class="w3-col m3">
-      <app-my-profile [userAccountDetails]="userAccountDetails"></app-my-profile>
-    </div>
-    <div class="w3-col m7">
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-container w3-card w3-white w3-round w3-margin" *ngFor="let profile of profileService.profile; let i = index">
-            <div class="job-applied" id="job-applied-{{i}}">
-              <img src="/assets/img/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right">
-              <span class="w3-right w3-opacity"><i class="fas fa-check"></i> Applied</span>
-              <h4>{{profile.name}} {{profile.surname}}</h4><br>
-              <hr class="w3-clear">
-              <h5><strong>Position:</strong></h5>
-              <p>{{positions[profile.roleID].title}} - {{positions[profile.roleID].location}} - {{positions[profile.roleID].type}} - {{positions[profile.roleID].salary}}</p>
+<div class="dashboard">
+  <div class="w3-container w3-content">
+    <div class="w3-row">
+        <div class="w3-col m3 w3-row-padding">
+            <app-my-profile [userAccountDetails]="userAccountDetails"></app-my-profile>
+        </div>
+        <div class="w3-col m7">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container">
+              <h4 class="strong">No jobs applied</h4>
+              <hr />
+              <h5>APPly for IT jobs</h5>
               <ul>
-                <li>{{profile.email}}</li>
-                <li>{{profile.telephone}}</li>
-                <li>
-                  <span *ngFor="let skill of profile.skills">
-                      {{skill.title}}
-                  </span>
-                </li>
-                <li>{{profile.comments}}</li>
+                <li>Get instant job notifications</li>
+                <li>Apply direct from the job app</li>
+                <li>Save jobs and searches</li>
               </ul>
-              <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom" (click)="editProfile(i)"><i class="fas fa-edit"></i> &nbsp;Edit</button> 
-              <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom" (click)="deleteProfile(i)"><i class="fas fa-trash"></i> &nbsp;Delete</button> 
+            </div>
+          </div>
+          <div class="w3-card w3-round w3-light-grey">
+            <div class="w3-container">
+              <h4 class="strong"><i class="far fa-file-alt"></i> Latest Insights</h4>
+              <ul>
+                <li><a href="">A.I. Could Make Cybersecurity (and Hacking) More Powerful</a></li>
+                <li><a href="">Become a Software Engineer Without a Computer Science Degree</a></li>
+                <li><a href="">Job Interview Questions for Systems Analysts</a></li>
+                <li><a href="">Google Releases Stable ARCore v1.0: Should Devs Care?</a></li>
+                <li><a href="">GitHub: Machine Learning, Skills Development Big in 2018</a></li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
+        <div class="w3-col m2 w3-row-padding w3-center">
+          <div class="right-column">
+            <div class="w3-card w3-round w3-deep-orange">
+              <div class="w3-container">
+                <h5 class="strong">First</h5>
+                <i class="far fa-envelope"></i>
+                <p>Set up a targeted alert and be first to the latest jobs.</p>
+                <p><button class="w3-button w3-block w3-theme-l4">Create Alert</button></p>
+              </div>
+            </div>
+            <div class="w3-card w3-round w3-blue">
+              <div class="w3-container">
+                <h5 class="strong">Smart</h5>
+                <i class="far fa-envelope"></i>
+                <p>Don't just find. Be found. Put your CV in front of great employers. </p>
+                <p><button class="w3-button w3-block w3-theme-l4">Upload CV</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
-</div>
