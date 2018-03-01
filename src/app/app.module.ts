@@ -42,6 +42,7 @@ import { AuthService } from './api/auth.service';
 import { AuthGuard } from './api/auth-guard.service';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { FooterComponent } from './footer/footer.component';
+import { InsightsComponent } from './profiles/insights/insights.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { FooterComponent } from './footer/footer.component';
     PageNotFoundComponent,
     AuthLoginComponent,
     MyProfileComponent,
-    FooterComponent
+    FooterComponent,
+    InsightsComponent
   ],
   imports: [
     routing,

@@ -1,0 +1,15 @@
+<div class="w3-card w3-round w3-light-grey">
+  <div class="w3-container">
+    <h4 class="strong"><i class="far fa-file-alt"></i> Latest Insights</h4>
+    <ul>
+      <li *ngFor="let latest of insights; let i = index">
+        <span id="latest_{{i}}" (click)="viewArticle(i)">{{ latest.title }}</span>
+      </li>
+      <li><a href="">A.I. Could Make Cybersecurity (and Hacking) More Powerful</a></li>
+      <li><a href="">Become a Software Engineer Without a Computer Science Degree</a></li>
+      <li><a href="">Job Interview Questions for Systems Analysts</a></li>
+      <li><a href="">Google Releases Stable ARCore v1.0: Should Devs Care?</a></li>
+      <li><a href="">GitHub: Machine Learning, Skills Development Big in 2018</a></li>
+    </ul>
+  </div>
+</div>

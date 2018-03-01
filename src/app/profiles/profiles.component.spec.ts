@@ -1,6 +1,7 @@
 import { async, inject, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { InsightsComponent } from './insights/insights.component';
 import { ProfilesComponent } from './profiles.component';
 import { ProfileService } from '../api/profile.service';
 import { Profile } from '../common/profile.model';
@@ -22,7 +23,7 @@ describe('ProfilesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfilesComponent, MyProfileComponent ],
+      declarations: [ ProfilesComponent, MyProfileComponent, InsightsComponent ],
       providers: [
         ProfileService,
         NgRedux,
