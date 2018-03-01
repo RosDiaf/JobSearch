@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   { path: '', component: AuthLoginComponent },
   { path: 'home', component: RolesComponent, canActivate: [AuthGuard] },
-  { path: 'profiles', component: ProfilesComponent },
+  { path: 'profiles', component: ProfilesComponent, canActivate: [AuthGuard] },
   { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'apply/:roleid', component: DetailsComponent, canActivate: [AuthGuard] },

@@ -41,6 +41,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthService } from './api/auth.service';
 import { AuthGuard } from './api/auth-guard.service';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
     DetailSettingsComponent,
     PageNotFoundComponent,
     AuthLoginComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    FooterComponent
   ],
   imports: [
     routing,

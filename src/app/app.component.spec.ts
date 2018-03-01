@@ -1,6 +1,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { FooterComponent } from './footer/footer.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from './api/auth.service';
 
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        NavigationComponent
+        NavigationComponent,
+        FooterComponent
       ],
       imports: [
         RouterTestingModule,
