@@ -5,18 +5,42 @@
             <app-my-profile [userAccountDetails]="userAccountDetails"></app-my-profile>
         </div>
         <div class="w3-col m7">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container">
-              <h4 class="strong">No jobs applied</h4>
-              <hr />
-              <h5>APPly for IT jobs</h5>
-              <ul>
-                <li>Get instant job notifications</li>
-                <li>Apply direct from the job app</li>
-                <li>Save jobs and searches</li>
-              </ul>
+          <div class="w3-card w3-round w3-white" *ngIf="profileService.profile.length > 0; else noJobsApplied">
+            <div class="w3-container" *ngFor="let profile of profileService.profile; let i = index">
+              <div class="job-applied" id="job-applied-{{i}}">
+                <img src="/assets/img/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right">
+                <span class="w3-right w3-opacity"><i class="fas fa-check"></i> Applied</span>
+                <h4>{{profile.name}} {{profile.surname}}</h4>
+                <hr class="w3-clear">
+                <h5><strong>Position:</strong></h5>
+                <p>{{positions[profile.roleID].title}} - {{positions[profile.roleID].location}} - {{positions[profile.roleID].type}} - {{positions[profile.roleID].salary}}</p>
+                <ul>
+                  <li>{{profile.email}}</li>
+                  <li>{{profile.telephone}}</li>
+                  <li><span *ngFor="let skill of profile.skills">{{skill.title}}</span></li>
+                  <li>{{profile.comments}}</li>
+                </ul>
+                <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom" (click)="editProfile(i)"><i class="fas fa-edit"></i> &nbsp;Edit</button>
+                <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom" (click)="deleteProfile(i)"><i class="fas fa-trash"></i> &nbsp;Delete</button>
+              </div>
             </div>
           </div>
+
+          <ng-template #noJobsApplied>
+            <div class="w3-card w3-round w3-white">
+              <div class="w3-container">
+                <h4 class="strong">No jobs applied</h4>
+                <hr />
+                <h5>APPly for IT jobs</h5>
+                <ul>
+                  <li>Get instant job notifications</li>
+                  <li>Apply direct from the job app</li>
+                  <li>Save jobs and searches</li>
+                </ul>
+              </div>
+            </div>
+          </ng-template>
+
           <div class="w3-card w3-round w3-light-grey">
             <div class="w3-container">
               <h4 class="strong"><i class="far fa-file-alt"></i> Latest Insights</h4>
