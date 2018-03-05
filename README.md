@@ -1,6 +1,9 @@
-# VIPR Solutions Test
+# My Job Search App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
+
+## Description
+Automatically receive details of future jobs according to your criteria as soon as they are posted. Register for Alerts. Have you already applied for a role? To see the current status of your application, log in to the Candidate Communication Centre. Login. There are 144 jobs matching your criteria.
 
 ## Installation
 
