@@ -8,7 +8,7 @@ import { RolesComponent } from './roles/roles.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
+import { PageComponent } from './page/page.component';
 
 // Route Configuration
 const routes: Routes = [
@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'apply/:roleid', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'role-details/:id', component: RoleDetailsComponent, canActivate: [AuthGuard] },
   { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
+  { path: 'page/:id', component: PageComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

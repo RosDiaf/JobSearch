@@ -21,13 +21,17 @@ import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 // -- Ngx Pipes
 import { NgPipesModule } from 'ngx-pipes';
 
-import { FormComponent } from './form/form.component';
-import { ProfilesComponent } from './profiles/profiles.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { DetailsComponent } from './details/details.component';
+import { FormComponent } from './form/form.component';
+import { FooterComponent } from './footer/footer.component';
+import { InsightsComponent } from './profiles/insights/insights.component';
+import { MyProfileComponent } from './profiles/my-profile/my-profile.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { PageComponent } from './page/page.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 import { RolesComponent } from './roles/roles.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
-import { MyProfileComponent } from './profiles/my-profile/my-profile.component';
+
 
 // -- Redux
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
@@ -41,8 +45,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthService } from './api/auth.service';
 import { AuthGuard } from './api/auth-guard.service';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
-import { FooterComponent } from './footer/footer.component';
-import { InsightsComponent } from './profiles/insights/insights.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { InsightsComponent } from './profiles/insights/insights.component';
     AuthLoginComponent,
     MyProfileComponent,
     FooterComponent,
-    InsightsComponent
+    InsightsComponent,
+    PageComponent
   ],
   imports: [
     routing,
