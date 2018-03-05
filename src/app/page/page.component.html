@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="w3-container w3-content">
+    <div class="w3-row">
+      <div class="w3-col m12">
+        <div class="w3-card w3-round w3-white">
+          <div class="w3-container">
+              <h1>{{insights[contentId].title}}</h1>
+              <p>{{insights[contentId].author}}</p>
+              <img src="{{insights[contentId].image}}" alt="" />
+              <div [innerHTML]="insights[contentId].content"></div>
+              <button class="w3-button w3-black" (click)="backToProfile()"><i class="fas fa-chevron-circle-left"></i> Back</button>
+              <button class="w3-button w3-teal"><a href="{{insights[contentId].url}}" target="_blank"><i class="fas fa-external-link-alt"></i> Read More</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
