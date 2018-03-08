@@ -40,4 +40,29 @@ describe('PageComponent', () => {
     component.backToProfile();
     expect(spy).toHaveBeenCalled();
   }));
+
+  describe('DOM nodes and contents', () => {
+    it('should display h1 tag of the page', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('h1');
+      expect(element).not.toBeNull();
+      expect(element.textContent).toContain(insights[0].title);
+    });
+
+    it('should display p tag of the page', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('p');
+      expect(element).not.toBeNull();
+      expect(element.textContent).toContain(insights[0].author);
+    });
+
+    it('should display img tag of the page', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('img');
+      expect(element).not.toBeNull();
+    });
+
+    it('should display article content', () => {
+      const element = fixture.debugElement.nativeElement.querySelector('#article_0');
+      expect(element).not.toBeNull();
+      expect(element.textContent).toContain('Tech pros who interact in any way with cybersecurity will face a new');
+    });
+  });
 });

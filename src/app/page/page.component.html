@@ -7,7 +7,7 @@
               <h1>{{insights[contentId].title}}</h1>
               <p>{{insights[contentId].author}}</p>
               <img src="{{insights[contentId].image}}" alt="" />
-              <div [innerHTML]="insights[contentId].content"></div>
+              <div [innerHTML]="insights[contentId].content" id="article_{{contentId}}"></div>
               <button class="w3-button w3-black" (click)="backToProfile()"><i class="fas fa-chevron-circle-left"></i> Back</button>
               <button class="w3-button w3-teal"><a href="{{insights[contentId].url}}" target="_blank"><i class="fas fa-external-link-alt"></i> Read More</a></button>
           </div>
