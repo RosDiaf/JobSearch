@@ -84,5 +84,67 @@ export const insights = [
             <li><strong>Why You Should Say It:</strong> A top-notch developer recognizes when an upgrade is necessary,
             and how to minimize downtime.</li>
         </ul>`
+    },
+    {
+        id: 3,
+        title: 'Google Offering Crash Course in Machine Learning',
+        author: 'Nick Kolakowski',
+        url: 'https://uk.dice.com/technews/google-offering-crash-course-machine-learning/',
+        image: 'https://uk.dice.com/technews/wp-content/uploads/2018/03/shutterstock_618887135.jpg',
+        content: `Is your CEO suddenly repeating the phrase “artificial intelligence” over and over again?
+        Are your clients jabbering endlessly about making an app “smarter”? If so, you might need to take a crash course in machine learning,
+        the skillset that will enable you to create software that refines itself over the course of many iterations.<br /><br />
+        Google is now offering such a course, complete with 25 lessons and more than 40 exercises, all of it designed for completion
+        in 15 hours (or conceivably less, if you already have some of the necessary knowledge).
+        There are lots of videos of Google engineers describing the nuances of machine learning,
+        but the course is ultimately independent, so you’ll need to be good at self-learning in order to make your way through it.<br /><br />
+        Topics covered include training and test sets, validation, regularization, logic regression, classification, and training neural nets.
+        There are some examples of machine learning at work in the real world, including a five-minute video on cancer prediction.<br /><br />
+        Even if you don’t have an immediate need for machine-learning knowledge, adopting the technology into your toolkit is probably
+        a good idea over the long term. Machine-learning algorithms can do everything from improve the driving accuracy of autonomous
+        vehicles to boost network cybersecurity (or, conversely, help unleash a new age of exceptionally brutal cyberattacks); tech pros,
+        recognizing the power of the technology to change the world, have been rushing to learn more about it.
+        (On that note: a new study from GitHub shows that developers are increasingly interested in machine-learning
+        and deep-learning platforms such as TensorFlow.)<br /><br />
+        In response to that burgeoning demand, companies such as Google are studying how to best automate A.I. and machine-learning systems
+        so that a broader range of workers can utilize them. However automated those technologies become, though,
+        chances are good that anyone working with A.I. and machine learning will need to know at least the basics of the technology
+        in order to perform a job; hence the need for education along the lines of Google’s new crash course.<br /><br />`
+    },
+    {
+        id: 4,
+        title: 'GitHub: Machine Learning, Skills Development Big in 2018',
+        author: 'Nate Swanner',
+        url: 'https://uk.dice.com/technews/github-machine-learning-skills-development-big-2018/',
+        image: 'https://uk.dice.com/technews/wp-content/uploads/2017/11/shutterstock_461565838.jpg',
+        content: `Open-source hosting platform GitHub is trying to predict the (short term) future of technology:
+        It’s released a new study and guidance on what trends will dominate the upcoming year.<br /><br />
+        GitHub isn’t throwing darts blindly. Over 24 million people around the globe engaged with at least 25 million public
+        GitHub repositories in 2017; the company analyzed how users interacted with those projects in order to predict what’s coming.
+        Here’s how it describes the methodology:<br /><br />
+        We looked at three different types of activity. First, we identified the top 100 projects that had at least 2,000 contributors
+        in 2016 and experienced the largest increase in contributors in 2017. We also identified the top 100 projects that received
+        the largest increase in visits to the project’s repo in 2017. Finally, we identified the top 100 projects
+        that received the most new stars in 2017. Combining these lists, we categorized projects into broad communities and looked
+        at the communities that were the most represented at the top of the lists.<br /><br />
+        Cross-platform and web development continue to interest developers; the Angular/Angular-cli repository doubled its interaction
+        versus the year prior. GitHub says users in 2017 “visited, starred and contributed” more often to projects
+        such as React, Electron and Angular.<br /><br />
+        Developers also like deep learning. The TensorFlow/TensorFlow repository had 2.2 times more visitors in 2017 than 2016,
+        and TensorFlow/models saw 5.5 times more interactions. Mozilla’s DeepSpeech repo was likewise popular.
+        Not only did users interact with those deep-learning skills more in 2017, but quite a few of those
+        repositories were created in the last year, as well.<br /><br />
+        But it’s not just about projects. GitHub is seeing a trend emerge around job preparedness and keeping up-to-date on specialized skills,
+        and developers have continued brushing up on languages. GitHub points out that the 30 Seconds of Code repository,
+        which is a “curated collection of useful JavaScript snippets that you can understand in 30 seconds or less,”
+        has seen a lot of engagement. Other popular repos are aimed at interview preparedness,
+        while repos that serve as best-practice guides or style sheets for codebases continue to be much-visited.<br /><br />
+        All told, 2018 could be a lot like the last half of 2017. After Google, Amazon and Apple made big bets on machine
+        learning and artificial intelligence, interest and engagement in those topics ballooned.
+        Over the next year, developers will continue to explore what A.I. can do for them.<br /><br />
+        Cross-platform projects will never go away, meaning that developers will continue to need to learn new code
+        and languages relatively quickly. Happily, people are starting to use GitHub for more than just static code
+        repository hosting, and branching out into listicles and best-practices guides that can help them increase their
+        knowledge in an expedited way.`
     }
 ];
