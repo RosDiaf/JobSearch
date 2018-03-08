@@ -48,7 +48,7 @@ describe('InsightsComponent', () => {
       expect(element.textContent).toContain('Latest Insights');
     });
 
-    describe('Article headers', () => { 
+    describe('Article headers', () => {
       it('should display header of the article 1', () => {
         const element = fixture.debugElement.nativeElement.querySelector('#latest_0');
         expect(element).not.toBeNull();

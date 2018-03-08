@@ -9,7 +9,8 @@ export const insights = [
         potentially devastating challenge in the next few years: artificial intelligence.<br /><br />
         According to a new paper by researchers at the nonprofit organization OpenAI, A.I. has a “dual nature.”
         When it comes to security, A.I. is capable of improving filters, surveillance tools, and risk assessments;
-        but in the wrong hands, it could also strengthen malware and other software used to penetrate and destroy networks and data.<br /><br />
+        but in the wrong hands, it could also strengthen malware and other software used to
+        penetrate and destroy networks and data.<br /><br />
         OpenAI’s mission is to create “safe” A.I. In order to achieve that lofty goal,
         it publishes papers and open-source software tools that it hopes will guide A.I. research in a positive direction.
         Those tools include OpenAI Gym, a kit for building reinforcement learning (RL) algorithms,
@@ -32,7 +33,8 @@ export const insights = [
         we expect to create formal processes for keeping technologies private when there are safety concerns.”<br /><br />
         In theory, companies could prove rather tight-lipped about their A.I., potentially opening the door to hackers to find and exploit
         unannounced vulnerabilities. That could result in a future threat landscape
-        that closely mirrors the one we face now with “conventional” software. If you’re involved in cybersecurity, be prepared.<br /><br />`
+        that closely mirrors the one we face now with “conventional” software.
+        If you’re involved in cybersecurity, be prepared.<br /><br />`
     },
     {
         id: 1,
@@ -75,7 +77,8 @@ export const insights = [
         Here are some of the questions she asks during an interview:<br /><br />
         <h4>How would you perform an upgrade from one OpenStack release to another?</h4>
         <ul>
-            <li><strong>What Most People Say:</strong> “I’m not sure, because I haven’t done one before. But I’ve heard that OpenStack upgrades are difficult.”</li>
+            <li><strong>What Most People Say:</strong> “I’m not sure, because I haven’t done one before.
+            But I’ve heard that OpenStack upgrades are difficult.”</li>
             <li><strong>What You Should Say:</strong> “There’s no doubt that OpenStack upgrades can be difficult. For instance,
             I was involved in an Icehouse upgrade at my last company. Although we followed the recommended processes,
             I ended up creating and deploying several Band Aid scripts to minimize downtime and conduct cleanup.
@@ -92,14 +95,18 @@ export const insights = [
         url: 'https://uk.dice.com/technews/google-offering-crash-course-machine-learning/',
         image: 'https://uk.dice.com/technews/wp-content/uploads/2018/03/shutterstock_618887135.jpg',
         content: `Is your CEO suddenly repeating the phrase “artificial intelligence” over and over again?
-        Are your clients jabbering endlessly about making an app “smarter”? If so, you might need to take a crash course in machine learning,
+        Are your clients jabbering endlessly about making an app “smarter”? If so,
+        you might need to take a crash course in machine learning,
         the skillset that will enable you to create software that refines itself over the course of many iterations.<br /><br />
         Google is now offering such a course, complete with 25 lessons and more than 40 exercises, all of it designed for completion
         in 15 hours (or conceivably less, if you already have some of the necessary knowledge).
         There are lots of videos of Google engineers describing the nuances of machine learning,
-        but the course is ultimately independent, so you’ll need to be good at self-learning in order to make your way through it.<br /><br />
-        Topics covered include training and test sets, validation, regularization, logic regression, classification, and training neural nets.
-        There are some examples of machine learning at work in the real world, including a five-minute video on cancer prediction.<br /><br />
+        but the course is ultimately independent, so you’ll need to be good at self-learning
+        in order to make your way through it.<br /><br />
+        Topics covered include training and test sets, validation, regularization, logic regression,
+        classification, and training neural nets.
+        There are some examples of machine learning at work in the real world,
+        including a five-minute video on cancer prediction.<br /><br />
         Even if you don’t have an immediate need for machine-learning knowledge, adopting the technology into your toolkit is probably
         a good idea over the long term. Machine-learning algorithms can do everything from improve the driving accuracy of autonomous
         vehicles to boost network cybersecurity (or, conversely, help unleash a new age of exceptionally brutal cyberattacks); tech pros,
@@ -134,7 +141,8 @@ export const insights = [
         and TensorFlow/models saw 5.5 times more interactions. Mozilla’s DeepSpeech repo was likewise popular.
         Not only did users interact with those deep-learning skills more in 2017, but quite a few of those
         repositories were created in the last year, as well.<br /><br />
-        But it’s not just about projects. GitHub is seeing a trend emerge around job preparedness and keeping up-to-date on specialized skills,
+        But it’s not just about projects. GitHub is seeing a trend emerge around job
+        preparedness and keeping up-to-date on specialized skills,
         and developers have continued brushing up on languages. GitHub points out that the 30 Seconds of Code repository,
         which is a “curated collection of useful JavaScript snippets that you can understand in 30 seconds or less,”
         has seen a lot of engagement. Other popular repos are aimed at interview preparedness,
