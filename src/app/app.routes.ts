@@ -9,12 +9,16 @@ import { RoleDetailsComponent } from './role-details/role-details.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageComponent } from './page/page.component';
+import { JobAlertFormComponent } from './profiles/job-alert/job-alert-form/job-alert-form.component';
+import { MyCvFormComponent } from './profiles/my-cv/my-cv-form/my-cv-form.component';
 
 // Route Configuration
 const routes: Routes = [
   { path: '', component: AuthLoginComponent },
   { path: 'home', component: RolesComponent, canActivate: [AuthGuard] },
   { path: 'profiles', component: ProfilesComponent, canActivate: [AuthGuard] },
+  { path: 'profiles/job-alert/form', component: JobAlertFormComponent, canActivate: [AuthGuard] },
+  { path: 'profiles/my-cv/form', component: MyCvFormComponent, canActivate: [AuthGuard]},
   { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'apply/:roleid', component: DetailsComponent, canActivate: [AuthGuard] },

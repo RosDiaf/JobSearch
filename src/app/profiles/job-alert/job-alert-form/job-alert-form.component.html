@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="job-alert">
+    <h1>Create alert</h1>
+    <app-alert [isSubmitted]="isSubmitted" [message]="alertCreatedSuccessfully"></app-alert>
+    <div class="w3-row">
+      <form [formGroup]="alertForm" (ngSubmit)="onSubmit()">
+        <div class="w3-row w3-section">
+          <label>Keywords</label>
+          <input class="w3-input w3-border" id="keywords" type="text" placeholder="e.g. Oracle, Sales" formControlName="keywords" [attr.disabled]="isSubmitted">
+          <div class="alert" *ngIf="(!alertForm.controls['keywords'].valid && alertForm.controls['keywords'].touched)">Enter valid keyword</div>
+          <div class="filter-options">
+            <label>Contains</label>
+            <span><input id="contains1" type="radio" value="any" name="contains1" formControlName="contains1" [attr.disabled]="isSubmitted"> Any</span>
+            or
+            <span><input type="radio" value="every" name="contains1" formControlName="contains1" [attr.disabled]="isSubmitted"> Every</span>
+            word
+            <div class="alert" *ngIf="(!alertForm.controls['contains1'].valid && alertForm.controls['contains1'].touched)">Select 'Any' or 'Every' options</div>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <label>Locations</label>
+          <input class="w3-input w3-border" id="locations" type="text" placeholder="e.g. London, SO15" formControlName="locations" [attr.disabled]="isSubmitted">
+          <span>within</span>
+          <select class="w3-input w3-border" id="miles" formControlName="miles" [attr.disabled]="isSubmitted">
+            <option value="20" [selected]="20">select miles</option>
+            <option value="20">20 miles</option>
+            <option value="40">40 miles</option>
+            <option value="60">60 miles</option>
+          </select>
+          <div class="alert" *ngIf="(!alertForm.controls['locations'].valid && alertForm.controls['locations'].touched)">Enter locations</div>
+          <div class="alert" *ngIf="(!alertForm.controls['miles'].valid && alertForm.controls['miles'].touched)">Enter miles</div>
+        </div>
+        <div class="w3-row w3-section">
+          <label>Job Title</label>
+          <div style="display: inline-block;">
+            <input class="w3-input w3-border" id="jobTitle" type="text" placeholder="e.g. Unix, Manager" formControlName="jobTitle" [attr.disabled]="isSubmitted">
+            <small>Will show jobs with a matching vacancy title</small>
+            <div class="alert" *ngIf="(!alertForm.controls['jobTitle'].valid && alertForm.controls['jobTitle'].touched)">Enter job title</div>
+          </div>
+          <div class="filter-options">
+              <label>Contains</label>
+              <span><input id="contains2" value="any" type="radio" name="contains2" formControlName="contains2" [attr.disabled]="isSubmitted"> Any</span>
+              or
+              <span><input value="every" type="radio" name="contains2" formControlName="contains2" [attr.disabled]="isSubmitted"> Every</span>
+              word
+              <div class="alert" *ngIf="(!alertForm.controls['contains2'].valid && alertForm.controls['contains2'].touched)">Select 'Any' or 'Every' options</div>
+            </div>
+        </div>
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" [attr.disabled]="isSubmitted">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

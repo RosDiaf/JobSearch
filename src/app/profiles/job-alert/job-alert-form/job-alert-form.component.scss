@@ -1,0 +1,40 @@
+@import '../../../../styles/variables.scss';
+
+.job-alert {
+    .w3-button {
+        width: 100px;
+    }
+    span {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    label {
+        display: inline-block;
+        width: 100px;
+        font-weight: bold;
+    }
+    small {
+        display: block;
+    }
+    .w3-input {
+        width: auto;
+        display: inline-block;
+    }
+
+    .filter-options {
+        margin-top: 10px;
+        margin-left: 45px;
+
+        label {
+            width: auto;
+            font-weight: normal;
+        }
+
+        span {
+            display: inline-block;
+            background-color: $AlertFormBgColor;
+            padding: 10px;
+            margin: 0;
+        }
+    }
+}

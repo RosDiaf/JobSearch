@@ -9,5 +9,7 @@ export const alert = {
     comment: 'Enter valid commment (only 250 alphanumeric characters)',
     skill: 'Enter correct skill',
     emailUpdatedSuccessfully: 'Email successfully updated!',
-    passwordUpdatedSuccessfully: 'Password successfully updated!'
+    passwordUpdatedSuccessfully: 'Password successfully updated!',
+    alertCreatedSuccessfully: 'Your alert has been created!',
+    cvUploadedSuccessfully: 'Your CV has been uploaded!'
 };
