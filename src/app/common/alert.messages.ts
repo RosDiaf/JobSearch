@@ -11,5 +11,6 @@ export const alert = {
     emailUpdatedSuccessfully: 'Email successfully updated!',
     passwordUpdatedSuccessfully: 'Password successfully updated!',
     alertCreatedSuccessfully: 'Your alert has been created!',
-    cvUploadedSuccessfully: 'Your CV has been uploaded!'
+    cvUploadedSuccessfully: 'Your CV has been uploaded!',
+    fileTypeNotSupported: 'File type not supported!'
 };

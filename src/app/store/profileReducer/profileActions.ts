@@ -6,6 +6,8 @@ type Payload = CustomerProfileModel[];
 
 @Injectable()
 export class CustomerProfileActions {
+
+  /* User Interactions */
   static readonly GET_CUSTOMER_PROFILE_LOADING = 'GET_CUSTOMER_PROFILE_LOADING';
   static readonly GET_CUSTOMER_PROFILE_SUCCESS = 'GET_CUSTOMER_PROFILE_SUCCESS';
   static readonly GET_CUSTOMER_PROFILE_ERROR = 'GET_CUSTOMER_PROFILE_ERROR';
@@ -29,6 +31,10 @@ export class CustomerProfileActions {
   static readonly UPDATE_CUSTOMER_COMMENTS = 'UPDATE_CUSTOMER_COMMENTS';
   static readonly UPDATE_CANDIDATE_SKILLS = 'UPDATE_CANDIDATE_SKILLS';
 
+  /* This store is never mutated directly
+     User interaction (and other code) fires actions which describe what happened
+  */
+  
   @dispatch()
   getCustomerProfileLoading = () => ({
     type: CustomerProfileActions.GET_CUSTOMER_PROFILE_LOADING,

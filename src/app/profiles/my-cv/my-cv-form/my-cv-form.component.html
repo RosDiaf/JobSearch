@@ -1,3 +1,75 @@
-<p>
-  my-cv-form works!
-</p>
+<div class="container">
+  <div class="cv-upload">
+    <h1>Upload your CV</h1>
+    <app-alert [isSubmitted]="isSubmitted" [message]="cvUploadedSuccessfully"></app-alert>
+    <div class="w3-row">
+      <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
+        <div class="w3-row w3-section">  
+          <label>Upload CV</label>
+          <div class="w3-input-container">
+            <input class="w3-input w3-border" value="" (change)="onChange($event)" id="file" type="file" placeholder="Select a file" formControlName="file" [attr.disabled]="isSubmitted">
+            <small>.docx, .doc, .pdf, .txt, and .rtf</small>
+            <div class="alert" *ngIf="!fileSelected">
+              File is Required. {{fileTypeNotSupported}}  
+            </div>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <label>Select hide or show</label>
+          <div class="filter-options">
+            <span><input id="status" type="radio" value="show" formControlName="status" [attr.disabled]="isSubmitted"> Let recruiters find your CV</span>
+            <span><input type="radio" value="hide" formControlName="status" [attr.disabled]="isSubmitted"> Hide your CV from recruiters</span>
+            <div><small>This can be cancelled at any time</small></div>
+            <div class="alert" *ngIf="(!cvForm.controls['status'].valid && cvForm.controls['status'].touched)">Select 'let' or 'hide' CV options</div>
+            <div class="alert" *ngIf="status.invalid"> 
+              Status required. 
+            </div>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <label>Job Type</label>
+          <div class="filter-options">
+            <input type="checkbox" value="perm" id="permanent" formControlName="permanent" [attr.disabled]="isSubmitted"> Permanent
+            <input type="checkbox" value="contract" id="contract" formControlName="contract" [attr.disabled]="isSubmitted"> Contract/Interim
+            <input type="checkbox" value="temp" id="temporary" formControlName="temporary" [attr.disabled]="isSubmitted"> Temporary/Seasonal
+            <input type="checkbox" value="partTime" id="part-time" formControlName="partTime" [attr.disabled]="isSubmitted"> Part-Time
+            <div class="alert" *ngIf="permanent.invalid && contract.invalid && temporary.invalid && partTime.invalid && !isSubmitted"> 
+              Job type required. 
+            </div>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <label>Salary</label>
+          <div class="filter-options">
+            <span><input type="radio" value="annual" id="salaryType" name="salaryType" formControlName="salaryType" [attr.disabled]="isSubmitted"> Annual</span>
+            <span><input type="radio" value="hourly" name="salaryType" formControlName="salaryType" [attr.disabled]="isSubmitted"> Hourly</span>
+            <div class="alert" *ngIf="salaryType.invalid && !isSubmitted">Select 'annual' or 'hourly' salary options</div>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <label>Salary range <small>(from - to)</small></label>
+          <select id="salaryFrom" formControlName="salaryFrom" [attr.disabled]="isSubmitted" (change)="validateSelectDropDownOption()">
+            <option value="null" [selected]="null">-- Any Salary --</option>
+            <option value="20000">20000</option>
+            <option value="30000">30000</option>
+            <option value="40000">40000</option>
+            <option value="50000">50000</option>
+            <option value="60000+">60000+</option>
+          </select>
+          <select id="salaryTo" formControlName="salaryTo" [attr.disabled]="isSubmitted" (change)="validateSelectDropDownOption()">
+            <option value="null" [selected]="null">-- Any Salary --</option>
+            <option value="30000">30000</option>
+            <option value="40000">40000</option>
+            <option value="50000">50000</option>
+            <option value="60000">60000</option>
+            <option value="70000+">70000+</option>
+          </select>
+          <div class="alert" *ngIf="selectFromDropDown">Select salary from and to</div>
+        </div>
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" [attr.disabled]="isSubmitted">Save</button>
+        <button class="w3-button w3-block w3-section w3-black w3-ripple w3-padding" (click)="back()">Back</button>
+      </form>
+    </div>
+  </div>
+</div>
+
