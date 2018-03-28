@@ -34,7 +34,7 @@ export class CustomerProfileActions {
   /* This store is never mutated directly
      User interaction (and other code) fires actions which describe what happened
   */
-  
+
   @dispatch()
   getCustomerProfileLoading = () => ({
     type: CustomerProfileActions.GET_CUSTOMER_PROFILE_LOADING,

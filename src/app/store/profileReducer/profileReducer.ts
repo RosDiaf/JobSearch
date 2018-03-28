@@ -3,7 +3,7 @@ import { CustomerProfileActions } from './profileActions';
 import { CUSTOMER_PROFILE_INITIAL_STATE } from './profileInitialState';
 
 export function customerProfileReducer(state: CustomerProfileModel = CUSTOMER_PROFILE_INITIAL_STATE, action) {
-    
+
     /* A new state is created by combining he old state and the action by a function called the reducer. */
 
     switch (action.type) {

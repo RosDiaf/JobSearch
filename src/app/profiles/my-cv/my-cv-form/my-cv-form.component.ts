@@ -36,7 +36,7 @@ export class MyCvFormComponent implements OnInit {
       salaryType: this.formBuilder.control(null, [Validators.required]),
       salaryFrom: this.formBuilder.control(null, [Validators.required, Validators.pattern('(20000|30000)$')]),
       salaryTo: this.formBuilder.control(null, [Validators.required, , Validators.pattern('(30000|40000)$')])
-    })
+    });
   }
 
   get status() {
@@ -62,9 +62,9 @@ export class MyCvFormComponent implements OnInit {
   get salaryType() {
     return this.cvForm.get('salaryType');
   }
- 
+
   onChange(event) {
-    let file = event.srcElement.files;
+    const file = event.srcElement.files;
     if (!this.validateFile(file[0].name)) {
       this.fileSelected = false;
       this.fileTypeNotSupported = alert.fileTypeNotSupported;
@@ -74,21 +74,20 @@ export class MyCvFormComponent implements OnInit {
   }
 
   validateFile(name: String) {
-    var ext = name.substring(name.lastIndexOf('.') + 1);
+    const ext = name.substring(name.lastIndexOf('.') + 1);
     if (ext.toLowerCase() === 'doc' ||
           ext.toLowerCase() === 'docx' ||
             ext.toLowerCase() === 'pdf' ||
               ext.toLowerCase() === 'rtf') {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
   }
 
   onSubmit() {
     const cvForm = this.cvForm;
-    if (this.fileSelected && 
+    if (this.fileSelected &&
           this.validateInputField() &&
             this.validateSelectDropDownOption()) {
 
@@ -101,7 +100,7 @@ export class MyCvFormComponent implements OnInit {
 
   validateInputField() {
     const cvForm = this.cvForm;
-    if(cvForm.controls['status'].valid &&
+    if (cvForm.controls['status'].valid &&
         (cvForm.controls['permanent'].valid
           || cvForm.controls['contract'].valid
             || cvForm.controls['temporary'].valid

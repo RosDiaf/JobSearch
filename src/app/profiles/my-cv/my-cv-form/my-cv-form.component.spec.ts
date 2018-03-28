@@ -59,7 +59,7 @@ describe('MyCvFormComponent', () => {
     let EventObj;
     beforeEach(() => {
       EventObj = {
-        srcElement: { 
+        srcElement: {
           files: [
             {
               name: undefined,
@@ -68,11 +68,11 @@ describe('MyCvFormComponent', () => {
             }
           ]
         }
-      }
+      };
     });
 
     it('Should validate file as invalid if type not supported', () => {
-      let spy = spyOn(component, 'validateFile').and.returnValue(false);
+      const spy = spyOn(component, 'validateFile').and.returnValue(false);
       component.onChange(EventObj);
       expect(spy).toHaveBeenCalledWith(EventObj.srcElement.files[0].name);
       expect(component.fileSelected).toBe(false);
@@ -80,7 +80,7 @@ describe('MyCvFormComponent', () => {
     });
 
     it('Should validate file as valid if type supported', () => {
-      let spy = spyOn(component, 'validateFile').and.returnValue(true);
+      const spy = spyOn(component, 'validateFile').and.returnValue(true);
       component.onChange(EventObj);
       expect(spy).toHaveBeenCalledWith(EventObj.srcElement.files[0].name);
       expect(component.fileSelected).toBe(true);
@@ -161,8 +161,8 @@ describe('MyCvFormComponent', () => {
   describe('submit form if valid data provided', () => {
     it('should display successfully message if form validated', () => {
       component.fileSelected = true;
-      let spyInput = spyOn(component, 'validateInputField').and.returnValue(true);
-      let spySelectOptions = spyOn(component, 'validateSelectDropDownOption').and.returnValue(true);
+      const spyInput = spyOn(component, 'validateInputField').and.returnValue(true);
+      const spySelectOptions = spyOn(component, 'validateSelectDropDownOption').and.returnValue(true);
       component.onSubmit();
       expect(component.isSubmitted).toBe(true);
       expect(component.cvUploadedSuccessfully).toEqual(alert.cvUploadedSuccessfully);
@@ -170,13 +170,13 @@ describe('MyCvFormComponent', () => {
 
     it('should not display successfully message if form not validated', () => {
       component.fileSelected = true;
-      let spyInput = spyOn(component, 'validateInputField').and.returnValue(false);
-      let spySelectOptions = spyOn(component, 'validateSelectDropDownOption').and.returnValue(false);
+      const spyInput = spyOn(component, 'validateInputField').and.returnValue(false);
+      const spySelectOptions = spyOn(component, 'validateSelectDropDownOption').and.returnValue(false);
       component.onSubmit();
       expect(component.onSubmit()).toBeFalsy();
     });
   });
-  
+
   describe('Back to previous view', () => {
     it('should return to profile view when clicking back button', inject([Router], (router: Router) => {
       const spy = spyOn(router, 'navigateByUrl');
