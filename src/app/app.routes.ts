@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'home', component: RolesComponent, canActivate: [AuthGuard] },
   { path: 'profiles', component: ProfilesComponent, canActivate: [AuthGuard] },
   { path: 'profiles/job-alert/form', component: JobAlertFormComponent, canActivate: [AuthGuard] },
-  { path: 'profiles/my-cv/form', component: MyCvFormComponent },
+  { path: 'profiles/my-cv/form', component: MyCvFormComponent, canActivate: [AuthGuard] },
   { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'apply/:roleid', component: DetailsComponent, canActivate: [AuthGuard] },

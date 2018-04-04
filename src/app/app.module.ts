@@ -49,6 +49,8 @@ import { JobAlertComponent } from './profiles/job-alert/job-alert.component';
 import { JobAlertFormComponent } from './profiles/job-alert/job-alert-form/job-alert-form.component';
 import { MyCvComponent } from './profiles/my-cv/my-cv.component';
 import { MyCvFormComponent } from './profiles/my-cv/my-cv-form/my-cv-form.component';
+import { EventsComponent } from './profiles/events/events.component';
+import { AdvertsComponent } from './profiles/adverts/adverts.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { MyCvFormComponent } from './profiles/my-cv/my-cv-form/my-cv-form.compon
     JobAlertComponent,
     JobAlertFormComponent,
     MyCvComponent,
-    MyCvFormComponent
+    MyCvFormComponent,
+    EventsComponent,
+    AdvertsComponent
   ],
   imports: [
     routing,

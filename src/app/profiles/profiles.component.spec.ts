@@ -1,6 +1,8 @@
 import { async, inject, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AdvertsComponent } from './adverts/adverts.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { EventsComponent } from './events/events.component';
 import { InsightsComponent } from './insights/insights.component';
 import { JobAlertComponent } from './job-alert/job-alert.component';
 import { MyCvComponent } from './my-cv/my-cv.component';
@@ -26,11 +28,14 @@ describe('ProfilesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        AdvertsComponent,
         ProfilesComponent,
         MyProfileComponent,
         InsightsComponent,
         JobAlertComponent,
-        MyCvComponent ],
+        MyCvComponent,
+        EventsComponent, 
+      ],
       providers: [
         ProfileService,
         NgRedux,
