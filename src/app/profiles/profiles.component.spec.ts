@@ -6,6 +6,7 @@ import { EventsComponent } from './events/events.component';
 import { InsightsComponent } from './insights/insights.component';
 import { JobAlertComponent } from './job-alert/job-alert.component';
 import { MyCvComponent } from './my-cv/my-cv.component';
+import { EventsListComponent } from './events/events-list/events-list.component';
 import { ProfilesComponent } from './profiles.component';
 import { ProfileService } from '../api/profile.service';
 import { Profile } from '../common/profile.model';
@@ -34,7 +35,8 @@ describe('ProfilesComponent', () => {
         InsightsComponent,
         JobAlertComponent,
         MyCvComponent,
-        EventsComponent, 
+        EventsComponent,
+        EventsListComponent
       ],
       providers: [
         ProfileService,

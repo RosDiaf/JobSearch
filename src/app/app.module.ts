@@ -51,6 +51,7 @@ import { MyCvComponent } from './profiles/my-cv/my-cv.component';
 import { MyCvFormComponent } from './profiles/my-cv/my-cv-form/my-cv-form.component';
 import { EventsComponent } from './profiles/events/events.component';
 import { AdvertsComponent } from './profiles/adverts/adverts.component';
+import { EventsListComponent } from './profiles/events/events-list/events-list.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { AdvertsComponent } from './profiles/adverts/adverts.component';
     MyCvComponent,
     MyCvFormComponent,
     EventsComponent,
-    AdvertsComponent
+    AdvertsComponent,
+    EventsListComponent
   ],
   imports: [
     routing,

@@ -1,0 +1,17 @@
+<div class="w3-card w3-round w3-light-grey">
+  <div class="w3-container">
+    <h4 class="strong"><i class="far fa-file-alt"></i> Events</h4>
+    <div class="media" *ngFor="let event of events; let i = index">
+      <div class="media-left">
+        <a href="#">
+          <i class="fas fa-clock"></i>          
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="{{event.url}}" target="_blank">{{ event.title }}</a></h4>
+        <small>{{ event.author}} | {{ event.date}}</small>
+        <p>{{ event.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

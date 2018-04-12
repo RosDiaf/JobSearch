@@ -74,3 +74,27 @@ button.clear {
 .strong {
     font-weight: bold;
 }
+
+.media {
+    display: flex; 
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+
+    .media-left {
+        flex: none;
+        align-self: auto;
+        padding-right: 20px;
+        margin-top: 4px;
+    }
+
+    .media-body {
+        h4, p {
+            margin: 0;
+        }
+    }
+
+    .fa-clock {
+        font-size: 2em;
+    }
+}

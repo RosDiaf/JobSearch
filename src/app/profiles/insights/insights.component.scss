@@ -1,7 +1,11 @@
-.latest-insights {
-    cursor: pointer;
+.w3-card {
+    margin-bottom: 10px;
+    
+    .latest-insights {
+        cursor: pointer;
 
-    &:hover {
-        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

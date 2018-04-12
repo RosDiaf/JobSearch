@@ -16,7 +16,7 @@ import { MyCvFormComponent } from './profiles/my-cv/my-cv-form/my-cv-form.compon
 const routes: Routes = [
   { path: '', component: AuthLoginComponent },
   { path: 'home', component: RolesComponent, canActivate: [AuthGuard] },
-  { path: 'profiles', component: ProfilesComponent, canActivate: [AuthGuard] },
+  { path: 'profiles', component: ProfilesComponent },
   { path: 'profiles/job-alert/form', component: JobAlertFormComponent, canActivate: [AuthGuard] },
   { path: 'profiles/my-cv/form', component: MyCvFormComponent, canActivate: [AuthGuard] },
   { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
