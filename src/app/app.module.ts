@@ -31,7 +31,14 @@ import { PageComponent } from './page/page.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { RolesComponent } from './roles/roles.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
-
+import { JobAlertComponent } from './profiles/job-alert/job-alert.component';
+import { JobAlertFormComponent } from './profiles/job-alert/job-alert-form/job-alert-form.component';
+import { MyCvComponent } from './profiles/my-cv/my-cv.component';
+import { MyCvFormComponent } from './profiles/my-cv/my-cv-form/my-cv-form.component';
+import { EventsComponent } from './profiles/events/events.component';
+import { AdvertsComponent } from './profiles/adverts/adverts.component';
+import { EventsListComponent } from './profiles/events/events-list/events-list.component';
+import { SlideshowComponent } from './common/slideshow/slideshow.component';
 
 // -- Redux
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
@@ -45,13 +52,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthService } from './api/auth.service';
 import { AuthGuard } from './api/auth-guard.service';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
-import { JobAlertComponent } from './profiles/job-alert/job-alert.component';
-import { JobAlertFormComponent } from './profiles/job-alert/job-alert-form/job-alert-form.component';
-import { MyCvComponent } from './profiles/my-cv/my-cv.component';
-import { MyCvFormComponent } from './profiles/my-cv/my-cv-form/my-cv-form.component';
-import { EventsComponent } from './profiles/events/events.component';
-import { AdvertsComponent } from './profiles/adverts/adverts.component';
-import { EventsListComponent } from './profiles/events/events-list/events-list.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +79,8 @@ import { EventsListComponent } from './profiles/events/events-list/events-list.c
     MyCvFormComponent,
     EventsComponent,
     AdvertsComponent,
-    EventsListComponent
+    EventsListComponent,
+    SlideshowComponent
   ],
   imports: [
     routing,

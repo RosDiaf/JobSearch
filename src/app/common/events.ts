@@ -3,20 +3,21 @@ export const events = [
         title: 'Linux Foundation 2018 events list',
         author: 'Adrian Bridgwater',
         date: '27 Nov 2017',
-        url: 'https://www.computerweekly.com/blog/Open-Source-Insider/Linux-Foundation-2018-events-list',
+        url: 'http://events17.linuxfoundation.org/events/linux-foundation-member-legal-summit',
+        image: '../../assets/img/linuxfundation2018.jpg',
         description: `The Linux Foundation has released its entire 2018 events schedule.
         The nonprofit organisation insists that it maintains a mission focused on the
         'creators, maintainers and practitioners' of open `
     },
     {
-        title: 'Retrieve a Hyper-V event log with the Get-EventLog cmdlet',
+        title: 'OPNF Plugfest',
         author: 'Nirmal Sharma',
-        date: '23 Feb 2018',
-        url: `https://searchservervirtualization.techtarget.com/answer
-        /Retrieve-a-Hyper-V-event-log-with-the-Get-EventLog-cmdlet`,
-        description: `Use the Get-EventLog PowerShell cmdlet with the desired
-        parameters to retrieve a Hyper-V event log.
-        This command gets errors and warnings and exports them as a CSV file.`
+        date: '04 Jun 2018',
+        url: `https://events.linuxfoundation.org/events/opnfv-plugfest-2018/`,
+        image: '../../assets/img/OPNFV_Plugfest_Banner_2018_V2_web.png',
+        description: `Come join the ​fifth ​OPNFV ​Plugfest at ​the ​facilities ​of ​OPNFV ​member ​company,
+        ​ETSI. ​The event will focus on interoperability of the OPNFV platform in deployment,
+        network integration, VNF applications, etc. Both OPNFV members and non-members are welcome to attend.`
     },
     {
         title: 'Okta and others host \'Iterate\' developer event',
@@ -60,4 +61,64 @@ export const events = [
         url: 'https://www.computerweekly.com/news/450431668/Startups-and-corporations-mingle-at-Finlands-Slush-tech-event',
         description: `Startup events are becoming rich hunting grounds for large enterprises looking for the platforms of the future`
     },
+];
+
+
+export const upcomingEvents = [
+    {
+        title: 'Cloud Foundry Summit 2018',
+        date: 'April 18-20, 2018',
+        location: 'Boston, Massachusetts, USA',
+        image: '../../assets/img/boston-small.jpg',
+        url: 'https://www.cloudfoundry.org/event/nasummit2018/'
+    },
+    {
+        title: 'The Linux Storage, Filesystem & Memory Management Summit',
+        date: 'April 23 - 25, 2018',
+        location: 'Lodges at Deer Valley Park City, Utah',
+        image: 'https://events.linuxfoundation.org/wp-content/uploads/2017/11/park_city_utah.jpg',
+        url: 'https://events.linuxfoundation.org/events/lsfmm-2018/',
+    },
+    {
+        title: 'The Cloud Native Computing Foundation’s',
+        date: 'May 2 – 4, 2018',
+        location: 'Copenhagen, Denmark',
+        image: 'https://events.linuxfoundation.org/wp-content/uploads/2017/11/copenhagen_denmark.jpg',
+        url: 'https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2018/'
+    },
+    {
+        title: 'OPNFV ​Plugfest',
+        date: 'June 4 - 8, 2018',
+        location: 'Valbonne, France',
+        image: 'https://events.linuxfoundation.org/wp-content/uploads/2018/03/OPNFV_Plugfest_Banner_2018_V2_web.png',
+        url: 'https://events.linuxfoundation.org/events/opnfv-plugfest-2018/'
+    },
+    {
+        title: 'Automotive Linux Summit',
+        date: 'June 20 - 22, 2018',
+        location: 'Tokyo Conference Center Ariake Tokyo, Japan',
+        image: 'https://events.linuxfoundation.org/wp-content/uploads/2017/11/tokyo.jpg',
+        url: 'https://events.linuxfoundation.org/events/automotive-linux-summit-2018/'
+    },
+    {
+        title: 'The Xen Developer and Design Summit',
+        date: 'June 20 - 22',
+        location: 'Crowne Plaza Nanjing Jiangning Nanjing Jiangning, China',
+        image: 'https://events.linuxfoundation.org/wp-content/uploads/2018/03/Xen_18_Graphics_v1_ac_LFAsia.png',
+        url: 'https://www.lfasiallc.com/events/xensummit2018/'
+    },
+    {
+        title: 'Hyperledger ​Hackfests',
+        date: 'June 27-29, 2018',
+        location: 'ABN AMRO Head Office Amsterdam, Netherlands',
+        image: 'https://events.linuxfoundation.org/wp-content/uploads/2018/02/Hyperledger_RegOnline_HackfestAM_V1.jpg',
+        url: 'https://events.linuxfoundation.org/events/open-networking-summit-europe-2018/'
+    },
+    {
+        title: 'Chief Data & Analytics Officer Public Sector 2018',
+        date: '30-31 May 2018',
+        location: 'Canberra Rex Hotel',
+        image: 'https://chiefdataanalyticsofficerpublicsector.com/wp-content/uploads/sites/219/2018/01/Data-Analytics-Conference-Public-Sector.jpg',
+        url: 'https://www.computerweekly.com/event/Chief-Data-Analytics-Officer-Public-Sector-2018'
+    }
 ];

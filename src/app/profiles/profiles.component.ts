@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ProfileService } from '../api/profile.service';
 import { Router } from '@angular/router';

@@ -8,6 +8,7 @@ import { JobAlertComponent } from './job-alert/job-alert.component';
 import { MyCvComponent } from './my-cv/my-cv.component';
 import { EventsListComponent } from './events/events-list/events-list.component';
 import { ProfilesComponent } from './profiles.component';
+import { SlideshowComponent } from '../common/slideshow/slideshow.component';
 import { ProfileService } from '../api/profile.service';
 import { Profile } from '../common/profile.model';
 import { Router, RouterModule } from '@angular/router';
@@ -35,6 +36,7 @@ describe('ProfilesComponent', () => {
         InsightsComponent,
         JobAlertComponent,
         MyCvComponent,
+        SlideshowComponent,
         EventsComponent,
         EventsListComponent
       ],
