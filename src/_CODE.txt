@@ -69,3 +69,6 @@ xit('should check is authenticated', () => {
 
   Testing Change Detection
   https://codecraft.tv/courses/angular/unit-testing/change-detection/
+
+  EVENTS:
+  https://events.linuxfoundation.org/

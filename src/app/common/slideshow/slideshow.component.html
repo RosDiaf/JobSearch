@@ -1,16 +1,17 @@
 <div class="slideshow-container">
-    <div class="mySlides fade" *ngFor="let event of upcomingEvents; let i = index">
-      <div class="numbertext">{{i}} / {{upcomingEvents.length}}</div>
-      <img src="{{event.image}}">
-      <div><strong>{{event.title}}</strong></div>
-      <p>{{event.location}}</p>
-      <p>{{event.date}}</p>
-      <p><a href="{{event.url}}}" target="_blank" class="w3-button w3-block w3-theme-l4">Info</a></p>
-    </div>
-    
-    <div class="nav">
-      <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
-      <a class="next" (click)="plusSlides(1)">&#10095;</a>
+    <div class="mySlides fade" *ngFor="let event of upcomingEvents; let i = index" id="slide_{{i}}">
+      <div *ngIf="displaySlide === i">
+        <div class="numbertext">{{i+1}} / {{upcomingEvents.length}}</div>
+        <img src="{{event.image}}">
+        <div><strong>{{event.title}}</strong></div>
+        <p>{{event.location}}</p>
+        <p>{{event.date}}</p>
+        <p><a href="{{event.url}}}" target="_blank" class="w3-button w3-block w3-theme-l4">Info</a></p>
+        <div class="nav">
+            <a class="prev" (click)="showSlide(i-1)">&#10094;</a>
+            <a class="next" (click)="showSlide(i+1)">&#10095;</a>
+        </div>
+      </div>
     </div>
 </div>
 

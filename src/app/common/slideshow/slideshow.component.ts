@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, OnInit, Inject, Input, ChangeDetectorRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -10,28 +10,21 @@ export class SlideshowComponent implements OnInit {
 
   @Input() upcomingEvents: any;
   slideIndex: number = 1;
+  displaySlide: number;
 
-  constructor(@Inject(DOCUMENT) document) { }
+  constructor(@Inject(DOCUMENT) document, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    this.showSlides(this.slideIndex);
+    this.displaySlide = 0;
+    this.cdr.detectChanges();
   }
 
-  public plusSlides(n) {
-    this.showSlides(this.slideIndex += n);
-  }
-
-  public showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
-    if (n > slides.length) {this.slideIndex = 1} 
-    if (n < 1) {this.slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; 
+  public showSlide(id) {
+    if (id <= this.upcomingEvents.length-1 && id >= 0) {
+      this.displaySlide = id;
     }
-    slides[this.slideIndex-1].style.display = "block";
   }
 }

@@ -53,6 +53,9 @@ import { AuthService } from './api/auth.service';
 import { AuthGuard } from './api/auth-guard.service';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 
+// -- Pipes
+import { ShortenPipe } from './common/pipe/shorten.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +83,8 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
     EventsComponent,
     AdvertsComponent,
     EventsListComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    ShortenPipe
   ],
   imports: [
     routing,

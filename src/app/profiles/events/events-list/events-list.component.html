@@ -10,7 +10,7 @@
       <div class="media-body">
         <h4 class="media-heading"><a href="{{event.url}}" target="_blank">{{ event.title }}</a></h4>
         <small>{{ event.author}} | {{ event.date}}</small>
-        <p>{{ event.description }}</p>
+        <p>{{ event.description | shorten:100 }}</p>
       </div>
     </div>
   </div>
