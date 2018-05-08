@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { EventsListComponent } from './events-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShortenPipe } from '../../../common/pipe/shorten.pipe';
+import { FilterPipe } from '../../../common/pipe/filter.pipe';
 import { events } from '../../../common/events';
 
 describe('EventsListComponent', () => {
@@ -8,7 +11,8 @@ describe('EventsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventsListComponent ]
+      declarations: [ EventsListComponent, ShortenPipe, FilterPipe ],
+      imports: [FormsModule, ReactiveFormsModule]
     })
     .compileComponents();
   }));
@@ -23,23 +27,21 @@ describe('EventsListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Event contents', () => {
-    it('should display event title when profile page visited', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('h4 a');
-      expect(element).not.toBeNull();
-      expect(element.textContent).toContain('Linux Foundation 2018 events list');
+  describe('Event List', () => {
+    it('should display all the event list when button \'Show All\' is clicked', () => {
+      component.showAllEvents = false;
+      component.showEventsList();
+      expect(component.showAllEvents).toBeTruthy();
+      expect(component.eventBtnLabel).toEqual('Hide All');
+      expect(component.selectEventDisabled).toBe(true);
     });
-
-    it('should display event author and date when profile page visited', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('small');
-      expect(element).not.toBeNull();
-      expect(element.textContent).toContain('Adrian Bridgwater | 27 Nov 2017');
-    });
-
-    it('should display event description when profile page visited', () => {
-      const element = fixture.debugElement.nativeElement.querySelector('p');
-      expect(element).not.toBeNull();
-      expect(element.textContent).toContain('The Linux Foundation has released');
+    
+    it('should hide all the event list when button \'Hide All\' is clicked', () => {
+      component.showAllEvents = true;
+      component.showEventsList();
+      expect(component.showAllEvents).toBeFalsy();
+      expect(component.eventBtnLabel).toEqual('Show All');
+      expect(component.selectEventDisabled).toBe(false);
     });
   });
 });

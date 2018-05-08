@@ -1,3 +1,36 @@
-.w3-card {
-    margin-bottom: 10px;
+.events {
+    .events-top {
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .w3-input-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+
+            select {
+                margin-right: 10px;
+            }
+
+            .w3-input {
+                width: 65%;
+            }
+
+            .w3-btn, .w3-button {
+                padding: 5px 16px;
+            }
+        }
+    }
+
+    .w3-card {
+        margin-bottom: 10px;
+    }
+
+    .media {
+        margin-top: 20px;
+    }
 }

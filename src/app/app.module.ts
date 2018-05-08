@@ -55,6 +55,7 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
 
 // -- Pipes
 import { ShortenPipe } from './common/pipe/shorten.pipe';
+import { FilterPipe } from './common/pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { ShortenPipe } from './common/pipe/shorten.pipe';
     AdvertsComponent,
     EventsListComponent,
     SlideshowComponent,
-    ShortenPipe
+    ShortenPipe,
+    FilterPipe
   ],
   imports: [
     routing,

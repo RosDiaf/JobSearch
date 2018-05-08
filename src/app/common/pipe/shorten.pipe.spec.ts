@@ -1,7 +1,7 @@
 import { ShortenPipe } from './shorten.pipe';
 import { events } from '../../common/events';
 
-fdescribe('ShortenPipe', () => {
+describe('ShortenPipe', () => {
   let pipe: ShortenPipe;
 
   beforeEach(() => {
